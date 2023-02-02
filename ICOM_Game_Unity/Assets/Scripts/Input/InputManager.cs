@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
 
-public class InputManager : MonoBehaviour
+[DefaultExecutionOrder(-1)]
+public class InputManager : Singleton<InputManager>
 {
     public delegate void StartTouchEvent(Vector2 position, float time);
     public event StartTouchEvent OnStartTouch;
@@ -21,11 +23,20 @@ public class InputManager : MonoBehaviour
     private void OnEnable()
     {
         touchControls.Enable();
+        EnhancedTouchSupport.Enable();
+        TouchSimulation.Enable();
+
+        UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerDown += FingerDown;
+
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         touchControls.Disable();
+        EnhancedTouchSupport.Disable();
+        TouchSimulation.Disable();
+
+        UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerDown -= FingerDown;
     }
 
     private void Start()
@@ -43,5 +54,16 @@ public class InputManager : MonoBehaviour
     {
         Debug.Log("Touch Ended");
         if (OnEndTouch != null) OnEndTouch(touchControls.Touch.TouchPosition.ReadValue<Vector2>(), (float)context.time);
+    }
+
+    private void FingerDown(Finger finger)
+    {
+        if (OnStartTouch != null) OnStartTouch(finger.screenPosition, Time.time);
+    }
+
+    private void Update()
+    {
+        // Debug Active Touches
+        //Debug.Log(UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches);
     }
 }
