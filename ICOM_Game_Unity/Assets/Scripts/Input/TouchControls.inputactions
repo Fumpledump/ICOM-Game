@@ -6,13 +6,13 @@
             "id": "f52b1460-89c7-4a7e-94ac-8153f54a1121",
             "actions": [
                 {
-                    "name": "TouchInput",
-                    "type": "PassThrough",
-                    "id": "b42d335d-e6f7-498d-beaa-e87f844f4665",
-                    "expectedControlType": "",
+                    "name": "TouchPosition",
+                    "type": "Value",
+                    "id": "45cd9a37-48a3-49b1-9d0b-d29f4939595e",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "TouchPress",
@@ -22,33 +22,13 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "TouchPosition",
-                    "type": "PassThrough",
-                    "id": "45cd9a37-48a3-49b1-9d0b-d29f4939595e",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "Press(behavior=2)",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "94cec211-7540-4aad-b85a-8bb604c1c7ec",
-                    "path": "<Touchscreen>/primaryTouch/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "TouchInput",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "dbe50be2-a686-41b5-9c63-1cfeb142d9c5",
-                    "path": "<Touchscreen>/primaryTouch/press",
+                    "path": "<Touchscreen>/Press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

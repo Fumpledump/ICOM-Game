@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/CollectPage.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/AudioRecordTest.unity
+    guid: 32b4aacf8fef67b42bcf94c411d1db7a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8e36c838c6b3f9f43a3cdff0d727ebf9, type: 2}
