@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class AudioPlayer : MonoBehaviour
 {
@@ -11,24 +12,39 @@ public class AudioPlayer : MonoBehaviour
     private AudioClip recordedAudio;
     public string audioPath;
     public string audioName;
+    [SerializeField] private Slider audioSlider;
+    [SerializeField] private GameObject playButton;
+    [SerializeField] private GameObject pauseButton;
+
+    public float recordedClipLength;
+    public bool audioLoaded;
+
+    public float debugTime;
+    public float endClipThreshold;
 
     private Coroutine audioLoadRoutine;
 
-    public bool audioIntialLoad;
-
-    private void Awake()
+    private void Update()
     {
-        // Get Name of Audio File
-        audioName = audioRecorder.GetComponent<Recorder>().fileName + ".wav";
+        if (audioLoaded)
+        {
+            playButton.SetActive(!audioSource.isPlaying);
+            pauseButton.SetActive(audioSource.isPlaying);
 
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioPath = "file://" + Application.streamingAssetsPath;
-    }
+            debugTime = audioSource.time;
 
-    private void Start()
-    {
-        audioLoadRoutine = StartCoroutine(LoadAudioRoutine());
-        audioIntialLoad = true;
+            if (audioSource.isPlaying)
+            {
+                audioSlider.value = audioSource.time;
+            }
+
+            if (audioSource.time + endClipThreshold >= recordedClipLength)
+            {
+                audioSource.Pause();
+                audioSource.time = 0;
+                audioSlider.value = 0;
+            }
+        }
     }
 
     private IEnumerator LoadAudioRoutine()
@@ -48,22 +64,45 @@ public class AudioPlayer : MonoBehaviour
                 recordedAudio = DownloadHandlerAudioClip.GetContent(www);
                 recordedAudio.name = audioName;
                 audioSource.clip = recordedAudio;
+                audioSlider.maxValue = recordedClipLength;
+                audioLoaded = true;
             }
         }
-
         StopCoroutine(audioLoadRoutine);
     }
 
     public void LoadAudio()
     {
-        if (audioIntialLoad)
-        {
-            audioLoadRoutine = StartCoroutine(LoadAudioRoutine());
-        }
+        // Get Name of Audio File
+        audioName = audioRecorder.GetComponent<Recorder>().fileName + ".wav";
+
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioPath = "file://" + Application.streamingAssetsPath;
+
+
+        audioLoadRoutine = StartCoroutine(LoadAudioRoutine());
     }
 
     public void PlayAudio()
     {
         audioSource.Play();
+    }
+
+    public void PauseAudio()
+    {
+        audioSource.Pause();
+    }
+
+    public void SetAudioAtSlider()
+    {
+        if (audioSlider.value > audioSource.clip.length)
+        {
+            Debug.Log("Play Time Specified is long than audio length");
+            return;
+        }
+        else
+        {
+            audioSource.time = audioSlider.value;
+        }
     }
 }
