@@ -77,7 +77,7 @@ public class AudioPlayer : MonoBehaviour
         audioName = audioRecorder.GetComponent<Recorder>().fileName + ".wav";
 
         audioSource = gameObject.AddComponent<AudioSource>();
-        audioPath = "file://" + Application.streamingAssetsPath;
+        audioPath = "file://" + Application.persistentDataPath;
 
 
         audioLoadRoutine = StartCoroutine(LoadAudioRoutine());
