@@ -117,10 +117,11 @@ public class InputHandler : MonoBehaviour
         inventoryPage.SetActive(true);
         collectionPage.SetActive(false);
 
-        if (curCollectionIndex == entries.Count)
+        if (curCollectionIndex >= entries.Count)
         {
             return;
         }
+
 
         // Remove the entries and collection in file system
         Debug.Log(curCollectionIndex);
@@ -129,13 +130,13 @@ public class InputHandler : MonoBehaviour
         Debug.Log("Delete the entries in file system");
         for (int i = curCollectionIndex; i < entries.Count; i++)
         {
-            Debug.Log("Update the index" + entries[i].Index + "to index" + i);
+            Debug.Log("Update the index " + entries[i].Index + " to index " + i);
             entries[i].Index = i;
         }
         FileHandler.SaveToJSON<InputEntry>(entries, filename);
-        
+        Debug.Log("Current collection Index: " + curCollectionIndex);
         Destroy(collectionSlots[curCollectionIndex]);
-        //collectionSlots.RemoveAt(curCollectionIndex);
+        collectionSlots.RemoveAt(curCollectionIndex);
         Debug.Log("Deleted");
     }
 
