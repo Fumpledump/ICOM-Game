@@ -34,7 +34,7 @@ public class Recorder : MonoBehaviour
         while (!(Microphone.GetPosition(null) > 0)) { }
         samplesData = new float[audioSource.clip.samples * audioSource.clip.channels];
         audioSource.clip.GetData(samplesData, 0);
-        string filePath = Path.Combine(Application.streamingAssetsPath, fileName + ".wav");
+        string filePath = Path.Combine(Application.persistentDataPath, fileName + ".wav");
         // Delete the file if it exists.
         if (File.Exists(filePath))
         {

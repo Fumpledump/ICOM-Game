@@ -1,14 +1,15 @@
 fileFormatVersion: 2
 guid: f3a0512d117d36846ac7ec534cbbeb72
-timeCreated: 1548925019
-licenseType: Store
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
   iconMap: {}
   executionOrder: {}
+  defineConstraints: []
   isPreloaded: 0
   isOverridable: 0
+  isExplicitlyReferenced: 0
+  validateReferences: 1
   platformData:
   - first:
       Android: Android
