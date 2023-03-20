@@ -22,14 +22,29 @@ public class Recorder : MonoBehaviour
     [Tooltip("What should the saved file name be, the file will be saved in Streaming Assets Directory, Don't add .wav at the end")]
     public string fileName;
 
-    public void StartRecording()
+    public AudioPlayer audioPlayer;
+    public bool recording;
+
+    private void Update()
     {
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = Microphone.Start(Microphone.devices[0], false, 300, 44100);
+        if (recording)
+        {
+            audioPlayer.recordedClipLength += Time.deltaTime;
+        }
     }
 
-    public static void Save(string fileName = "test")
+    public void StartRecording()
     {
+        audioPlayer.audioLoaded = false;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = Microphone.Start(Microphone.devices[0], false, 300, 44100);
+        audioPlayer.recordedClipLength = 0;
+        recording = true;
+    }
+
+    public void Save()
+    {
+        recording = false;
 
         while (!(Microphone.GetPosition(null) > 0)) { }
         samplesData = new float[audioSource.clip.samples * audioSource.clip.channels];
