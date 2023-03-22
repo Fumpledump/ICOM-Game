@@ -197,6 +197,10 @@ public class InputHandler : MonoBehaviour
         {
             Sprite s = IMG2Sprite.LoadNewSprite(collection.ImageFilePath);
             //collectionSprite.Add(s);
+            if (s.rect.width < s.rect.height)
+            {
+                //s.ro
+            }
             collectionSprite.Insert(index, s);
 
             //byte[] byteArray = File.ReadAllBytes(collection.ImageFilePath);
