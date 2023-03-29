@@ -947,6 +947,18 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3135506883327954705, guid: f07591172eb23574db2bea52530d9557, type: 3}
+      propertyPath: micButton_Start
+      value: 
+      objectReference: {fileID: 1777902211}
+    - target: {fileID: 3135506883327954705, guid: f07591172eb23574db2bea52530d9557, type: 3}
+      propertyPath: micButton_ReRecord
+      value: 
+      objectReference: {fileID: 1233195610}
+    - target: {fileID: 3135506883327954705, guid: f07591172eb23574db2bea52530d9557, type: 3}
+      propertyPath: micButton_Recording
+      value: 
+      objectReference: {fileID: 1118595550}
     - target: {fileID: 3135506883327954706, guid: f07591172eb23574db2bea52530d9557, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1029,6 +1041,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3135506883327954706, guid: f07591172eb23574db2bea52530d9557, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135506883327954707, guid: f07591172eb23574db2bea52530d9557, type: 3}
+      propertyPath: recording
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2973,8 +2989,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotPrefab: {fileID: 2257362288458011181, guid: 63c408a7b5f1aec49865ce33e02def9c, type: 3}
   defaultImage: {fileID: 21300000, guid: c9212e0f060775c4a88f9d59e428c97d, type: 3}
+  mic: {fileID: 956548160}
   titleInput: {fileID: 753193572}
   curImageFilePath: 
+  curRecordingFilePath: 
   noteInput: {fileID: 251858924}
   filename: NoteTest.json
   collectionPage: {fileID: 184425381}
@@ -3415,12 +3433,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893953067}
   m_CullTransparentMesh: 1
+--- !u!1 &956548160 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1318144938320533532, guid: f07591172eb23574db2bea52530d9557, type: 3}
+  m_PrefabInstance: {fileID: 302602273}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &956548163 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3135506883327954707, guid: f07591172eb23574db2bea52530d9557, type: 3}
   m_PrefabInstance: {fileID: 302602273}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 956548160}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: faea64dd2085d47e9ae11feef7237a3b, type: 3}
@@ -4939,6 +4962,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776391634}
   m_CullTransparentMesh: 1
+--- !u!1 &1777902211 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1712615656687083409, guid: f07591172eb23574db2bea52530d9557, type: 3}
+  m_PrefabInstance: {fileID: 302602273}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1917188636
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,13 @@ using UnityEngine.UI;
 
 public class AudioPlayer : MonoBehaviour
 {
+    enum State 
+    {   
+        FirstRecord, 
+        Recording, 
+        Playable
+    };
+
     public GameObject audioRecorder;
 
     public AudioSource audioSource;
@@ -15,6 +22,9 @@ public class AudioPlayer : MonoBehaviour
     [SerializeField] private Slider audioSlider;
     [SerializeField] private GameObject playButton;
     [SerializeField] private GameObject pauseButton;
+    [SerializeField] private GameObject micButton_Start;
+    [SerializeField] private GameObject micButton_Recording;
+    [SerializeField] private GameObject micButton_ReRecord;
 
     public float recordedClipLength;
     public bool audioLoaded;
@@ -24,8 +34,18 @@ public class AudioPlayer : MonoBehaviour
 
     private Coroutine audioLoadRoutine;
 
+    //private State curState = State.FirstRecord;
+
+    private void Awake()
+    {
+        
+    }
+
     private void Update()
     {
+
+
+
         if (audioLoaded)
         {
             playButton.SetActive(!audioSource.isPlaying);
@@ -46,6 +66,25 @@ public class AudioPlayer : MonoBehaviour
             }
         }
     }
+
+    private void FirstRecord()
+    {
+        micButton_Start.SetActive(true);
+        micButton_Recording.SetActive(false);
+        micButton_ReRecord.SetActive(false);
+    }
+
+    private void Recording() 
+    {
+        micButton_Start.SetActive(false);
+        micButton_Recording.SetActive(true);
+        micButton_ReRecord.SetActive(false);
+    }
+
+    private void PlayRecording()
+    { 
+    }
+
 
     private IEnumerator LoadAudioRoutine()
     {

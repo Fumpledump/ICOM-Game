@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System.IO;
+using System.Text;
 
 
 
@@ -12,9 +13,13 @@ public class InputHandler : MonoBehaviour
 {
     public GameObject slotPrefab;
     public Sprite defaultImage;
+    public GameObject mic;
+    private Recorder recorder;
+    private AudioPlayer audioPlayer;
 
     [SerializeField] TMP_InputField titleInput;
     [SerializeField] string curImageFilePath;
+    [SerializeField] string curRecordingFilePath;
     [SerializeField] TMP_InputField noteInput;
     [SerializeField] string filename;
 
@@ -36,6 +41,7 @@ public class InputHandler : MonoBehaviour
 
     private void Start()
     {
+        recorder  = GetComponent<Recorder>();
         entries = FileHandler.ReadListFromJSON<InputEntry>(filename);
         for (int i = 0; i < entries.Count; i++)
         {
@@ -84,6 +90,7 @@ public class InputHandler : MonoBehaviour
         collectImageHolder.sprite = defaultImage;
         titleInput.text = "";
         curImageFilePath = "";
+        curRecordingFilePath = "";
         noteInput.text = "";
     }
 
@@ -95,13 +102,14 @@ public class InputHandler : MonoBehaviour
         {
             entries[curCollectionIndex].Title = titleInput.text;
             entries[curCollectionIndex].ImageFilePath= curImageFilePath;
+            entries[curCollectionIndex].RecordingFilePath= curRecordingFilePath;
             entries[curCollectionIndex].Notes = noteInput.text;
             LoadRawImage(entries[curCollectionIndex], collectionSlots[curCollectionIndex].GetComponent<Image>(), curCollectionIndex);
             LoadSprite(collectionSlots[curCollectionIndex].GetComponent<Image>(), curCollectionIndex);
         }
         else
         {
-            entries.Add(new InputEntry(entries.Count, titleInput.text, curImageFilePath, noteInput.text));
+            entries.Add(new InputEntry(entries.Count, titleInput.text, curImageFilePath, curRecordingFilePath, noteInput.text));
             UpdateInventory(entries[entries.Count - 1]);
         }
      
@@ -182,6 +190,12 @@ public class InputHandler : MonoBehaviour
         LoadSprite(collectImageHolder, collection.Index);
         noteInput.text = collection.Notes;
         Debug.Log("LoadName " + curCollectionIndex);
+
+        //if (collection.RecordingFilePath != "")
+        //{
+        //    recorder.fileName = collection.RecordingFilePath;
+        //    audioPlayer.audioLoaded = true;
+        //}
     }
 
     public void LoadSprite(Image holder, int index)
@@ -345,5 +359,6 @@ public class InputHandler : MonoBehaviour
     {
         Debug.Log("MicRecord");
     }
+
 
 }
