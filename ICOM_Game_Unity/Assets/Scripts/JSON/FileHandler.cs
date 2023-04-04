@@ -78,6 +78,21 @@ public static class FileHandler
         }
         return "";
     }
+
+    public static string GenerateUniqueId()
+    {
+        // Generate a unique identifier
+        Guid uniqueId = Guid.NewGuid();
+
+        // Convert the unique identifier to a string and remove any dashes or hyphens
+        string uniqueIdString = uniqueId.ToString("N");
+
+        // Append the unique identifier to the file name
+        string fileName = "myfile_" + uniqueIdString;
+
+        return fileName;
+    }
+
     // WAV file format from http://soundfile.sapp.org/doc/WaveFormat/
     public static void WriteWAVFile(AudioClip clip, string filePath, int HEADER_SIZE = 44)
     {

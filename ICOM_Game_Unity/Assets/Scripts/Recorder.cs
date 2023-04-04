@@ -68,7 +68,7 @@ public class Recorder : MonoBehaviour
     }
 
 
-    /// Runi: I move this helper function into FileHandler.cs
+    /// Runi: I move this helper function (WriteWAVFILE) into FileHandler.cs
     /// 
     //// WAV file format from http://soundfile.sapp.org/doc/WaveFormat/
     //static void WriteWAVFile(AudioClip clip, string filePath)

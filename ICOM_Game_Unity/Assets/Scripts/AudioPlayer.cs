@@ -43,9 +43,6 @@ public class AudioPlayer : MonoBehaviour
 
     private void Update()
     {
-
-
-
         if (audioLoaded)
         {
             playButton.SetActive(!audioSource.isPlaying);
@@ -67,23 +64,23 @@ public class AudioPlayer : MonoBehaviour
         }
     }
 
-    private void FirstRecord()
-    {
-        micButton_Start.SetActive(true);
-        micButton_Recording.SetActive(false);
-        micButton_ReRecord.SetActive(false);
-    }
+    //private void FirstRecord()
+    //{
+    //    micButton_Start.SetActive(true);
+    //    micButton_Recording.SetActive(false);
+    //    micButton_ReRecord.SetActive(false);
+    //}
 
-    private void Recording() 
-    {
-        micButton_Start.SetActive(false);
-        micButton_Recording.SetActive(true);
-        micButton_ReRecord.SetActive(false);
-    }
+    //private void Recording() 
+    //{
+    //    micButton_Start.SetActive(false);
+    //    micButton_Recording.SetActive(true);
+    //    micButton_ReRecord.SetActive(false);
+    //}
 
-    private void PlayRecording()
-    { 
-    }
+    //private void PlayRecording()
+    //{ 
+    //}
 
 
     private IEnumerator LoadAudioRoutine()
@@ -115,7 +112,7 @@ public class AudioPlayer : MonoBehaviour
         // Get Name of Audio File
         audioName = audioRecorder.GetComponent<Recorder>().fileName + ".wav";
 
-        audioSource = gameObject.AddComponent<AudioSource>();
+        //audioSource = gameObject.AddComponent<AudioSource>();
         audioPath = "file://" + Application.persistentDataPath;
 
 

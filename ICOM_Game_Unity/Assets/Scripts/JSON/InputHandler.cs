@@ -13,6 +13,8 @@ public class InputHandler : MonoBehaviour
 {
     public GameObject slotPrefab;
     public Sprite defaultImage;
+
+    // Mic variables
     public GameObject mic;
     private Recorder recorder;
     private AudioPlayer audioPlayer;
@@ -24,11 +26,11 @@ public class InputHandler : MonoBehaviour
     [SerializeField] string filename;
 
     List<InputEntry> entries = new List<InputEntry>();
-    List<GameObject> collectionSlots = new List<GameObject>();
+    List<GameObject> collectionSlots = new List<GameObject>(); // grid slots, needs to be replaced by game object in the future
     List<Sprite> collectionSprite = new List<Sprite>();
     private int curCollectionIndex = -1;
 
-    // Image Part
+    // Canvas Part
     public GameObject collectionPage;
     public GameObject inventoryPage;
     public GameObject unsavedConfirmationPage;
@@ -41,28 +43,62 @@ public class InputHandler : MonoBehaviour
 
     private void Start()
     {
-        recorder  = GetComponent<Recorder>();
+        recorder  = mic.GetComponent<Recorder>();
+        audioPlayer = mic.GetComponent<AudioPlayer>();
+
+        // Initialization
+        // Read from json file
         entries = FileHandler.ReadListFromJSON<InputEntry>(filename);
+
+        // Loop through each of the entries
         for (int i = 0; i < entries.Count; i++)
         {
             InputEntry entry = entries[i];
+            // set up the grid
+            // ----------- In the future, this part will be modified to the real game object ----- //
             collectionSlots.Add(Instantiate(slotPrefab));
             collectionSlots[i].transform.parent = grid.transform;
+
             Button collectionBtn = collectionSlots[i].GetComponent<Button>();
             collectionBtn.onClick.RemoveAllListeners();
             collectionBtn.onClick.AddListener(() => {
-                collectionPage.SetActive(true);
-                inventoryPage.SetActive(false);
-                LoadName(entry);
+                OpenCollectionPage(entry);
                 curCollectionIndex = entry.Index;
-                Debug.Log(entry.Index);
             });
+            // grid image showing
             Image collectionImage = collectionSlots[i].GetComponent<Image>();
             LoadRawImage(entry, collectionImage, i);
             LoadSprite(collectionImage, i);
         }
     }
 
+    /// <summary>
+    /// Load the item/collection into the collection page
+    /// </summary>
+    /// <param name="collection">loaded collection</param>
+    public void LoadInfoToCollectionPage(InputEntry collection)
+    {
+        curCollectionIndex = collection.Index;
+        curImageFilePath = collection.ImageFilePath;
+        curRecordingFilePath = collection.RecordingFilePath;
+        titleInput.text = collection.Title;
+        noteInput.text = collection.Notes;
+
+        LoadSprite(collectImageHolder, collection.Index);
+        Debug.Log("LoadName " + curCollectionIndex);
+
+        //if (collection.RecordingFilePath != "")
+        //{
+        //    recorder.fileName = collection.RecordingFilePath;
+        //    audioPlayer.LoadAudio();
+        //}
+    }
+
+    /// <summary>
+    /// Update Inventory when new item is added
+    /// This will be rework when there is real inventory instead of grid
+    /// </summary>
+    /// <param name="entry">added item</param>
     public void UpdateInventory(InputEntry entry)
     {
         collectionSlots.Add(Instantiate(slotPrefab));
@@ -70,20 +106,20 @@ public class InputHandler : MonoBehaviour
         Button collectionBtn = collectionSlots[collectionSlots.Count - 1].GetComponent<Button>();
         collectionBtn.onClick.RemoveAllListeners();
         collectionBtn.onClick.AddListener(() => {
-            collectionPage.SetActive(true);
-            inventoryPage.SetActive(false);
+            OpenCollectionPage(entry);
             curCollectionIndex = entry.Index;
-            LoadName(entry);
         });
         Image collectionImage = collectionSlots[collectionSlots.Count - 1].GetComponent<Image>();
         LoadRawImage(entry, collectionImage, entry.Index);
         LoadSprite(collectionImage, entry.Index);
     }
 
+    /// <summary>
+    /// Create new item/collection
+    /// </summary>
     public void CreateNewCollection()
     {
-        inventoryPage.SetActive(false);
-        collectionPage.SetActive(true);
+        OpenCollectionPage();
 
         curCollectionIndex= entries.Count;
 
@@ -94,10 +130,14 @@ public class InputHandler : MonoBehaviour
         noteInput.text = "";
     }
 
-    public void AddNameToList()     
+    /// <summary>
+    /// Push the iem into the list and save to json file
+    /// </summary>
+    public void ModifyTheList()     
     {
         //entries.Add(new InputEntry(entries.Count, titleInput.text, imageFilePath, string recordingFilePath, noteInput));
 
+        // Old collection is modified
         if (curCollectionIndex < entries.Count && curCollectionIndex >= 0)
         {
             entries[curCollectionIndex].Title = titleInput.text;
@@ -107,50 +147,51 @@ public class InputHandler : MonoBehaviour
             LoadRawImage(entries[curCollectionIndex], collectionSlots[curCollectionIndex].GetComponent<Image>(), curCollectionIndex);
             LoadSprite(collectionSlots[curCollectionIndex].GetComponent<Image>(), curCollectionIndex);
         }
+        // New item is added
         else
         {
             entries.Add(new InputEntry(entries.Count, titleInput.text, curImageFilePath, curRecordingFilePath, noteInput.text));
             UpdateInventory(entries[entries.Count - 1]);
         }
-     
-        //nameInput.text = "";
 
         FileHandler.SaveToJSON<InputEntry>(entries, filename);
     }
 
+    /// <summary>
+    /// Delte the item from list and json file
+    /// </summary>
     public void Delete()
     {
 
         // Back to inventory Page
-        inventoryPage.SetActive(true);
-        collectionPage.SetActive(false);
+        CloseCollectionPage();
 
         if (curCollectionIndex >= entries.Count)
         {
             return;
         }
 
-
         // Remove the entries and collection in file system
-        Debug.Log(curCollectionIndex);
         entries.RemoveAt(curCollectionIndex);
         collectionSprite.RemoveAt(curCollectionIndex);
-        Debug.Log("Delete the entries in file system");
+
         for (int i = curCollectionIndex; i < entries.Count; i++)
         {
             Debug.Log("Update the index " + entries[i].Index + " to index " + i);
             entries[i].Index = i;
         }
         FileHandler.SaveToJSON<InputEntry>(entries, filename);
-        Debug.Log("Current collection Index: " + curCollectionIndex);
+
         Destroy(collectionSlots[curCollectionIndex]);
         collectionSlots.RemoveAt(curCollectionIndex);
-        Debug.Log("Deleted");
     }
 
+    /// <summary>
+    /// Check if the item is saved
+    /// </summary>
     public void CheckCloseUnsaved()
     {
-        Debug.Log("check unsave0d " + curCollectionIndex);
+        // New item
         if (curCollectionIndex == entries.Count)
         {
             Debug.Log("New things " + curCollectionIndex);
@@ -160,10 +201,10 @@ public class InputHandler : MonoBehaviour
             }
             else
             {
-                collectionPage.SetActive(false);
-                inventoryPage.SetActive(true);
+                CloseCollectionPage();
             }
         }
+        // Old item unsaved
         else
         {
             Debug.Log("Old things " + curCollectionIndex);
@@ -175,29 +216,42 @@ public class InputHandler : MonoBehaviour
             }
             else
             {
-                collectionPage.SetActive(false);
-                inventoryPage.SetActive(true);
+                CloseCollectionPage();
             }
         }
     }
 
-    public void LoadName(InputEntry collection)
-    {
-        curCollectionIndex = collection.Index;
-        curImageFilePath = entries[curCollectionIndex].ImageFilePath;
-        titleInput.text = collection.Title;
-        //LoadRawImage(collection, collectImageHolder);
-        LoadSprite(collectImageHolder, collection.Index);
-        noteInput.text = collection.Notes;
-        Debug.Log("LoadName " + curCollectionIndex);
 
-        //if (collection.RecordingFilePath != "")
-        //{
-        //    recorder.fileName = collection.RecordingFilePath;
-        //    audioPlayer.audioLoaded = true;
-        //}
+    /// <summary>
+    /// Open the collection page and load item info
+    /// </summary>
+    /// <param name="entry"></param>
+    public void OpenCollectionPage(InputEntry entry = null)
+    {
+        collectionPage.SetActive(true);
+        inventoryPage.SetActive(false);
+
+        if (entry != null)
+        {
+            LoadInfoToCollectionPage(entry);
+        }
     }
 
+    /// <summary>
+    /// Close the collection page and open the inventory page
+    /// </summary>
+    public void CloseCollectionPage() 
+    {
+        collectionPage.SetActive(false);
+        inventoryPage.SetActive(true);
+    }
+
+
+    /// <summary>
+    /// Load Sprite for item
+    /// </summary>
+    /// <param name="holder">where to load</param>
+    /// <param name="index">index in the sprite list</param>
     public void LoadSprite(Image holder, int index)
     {
         holder.sprite = collectionSprite[index];
@@ -302,7 +356,8 @@ public class InputHandler : MonoBehaviour
         Sprite s = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero, 1f);
         collectImageHolder.sprite = s;
 
-        string writePath = Application.persistentDataPath + $"/test_{entries.Count - 1}.png";
+        //string writePath = Application.persistentDataPath + $"/test_{entries.Count - 1}.png";
+        string writePath = Application.persistentDataPath + $"/{FileHandler.GenerateUniqueId()}.png";
         curImageFilePath = writePath;
         File.WriteAllBytes(writePath, byteArray);
 
@@ -333,31 +388,6 @@ public class InputHandler : MonoBehaviour
         //background.ImageConversion.LoadImage(path);
         console.text += "\nCamera shot saved to: " + imagePath;
         Destroy(img);
-    }
-
-
-    /// <summary>
-    /// Try to access the camera or camera roll
-    /// </summary>
-    public void AccessCamera()
-    {
-        Debug.Log("Accessing Camera");
-    }
-
-    /// <summary>
-    /// Allow user to take notes and save locally
-    /// </summary>
-    public void NoteTaking()
-    {
-        Debug.Log("Note Taking");
-    }
-
-    /// <summary>
-    /// Access user voice input and save locally
-    /// </summary>
-    public void MicRecord()
-    {
-        Debug.Log("MicRecord");
     }
 
 
