@@ -6,16 +6,18 @@ public class InputEntry
     public int Index;
     public string Title;
     public string ImageFilePath;
-    public string RecordingFilePath;
+    public string RecordingFileName;
+    public float RecordingClipLength;
     public string Notes;
 
 
-    public InputEntry(int index, string title, string imageFilePath, string recordingFilePath, string notes)
+    public InputEntry(int index, string title, string imageFilePath, string recordingFileName, float recordingClipLength, string notes)
     {
         Index = index;
         Title = title;
         ImageFilePath = imageFilePath;
-        RecordingFilePath = recordingFilePath;
+        RecordingFileName = recordingFileName;
+        RecordingClipLength = recordingClipLength;
         Notes = notes;
     }
 

@@ -963,6 +963,10 @@ PrefabInstance:
       propertyPath: micButton_Recording
       value: 
       objectReference: {fileID: 1118595550}
+    - target: {fileID: 3135506883327954705, guid: f07591172eb23574db2bea52530d9557, type: 3}
+      propertyPath: micButton_AudioControls
+      value: 
+      objectReference: {fileID: 27926588}
     - target: {fileID: 3135506883327954706, guid: f07591172eb23574db2bea52530d9557, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1051,6 +1055,10 @@ PrefabInstance:
       propertyPath: recording
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3135506883327954707, guid: f07591172eb23574db2bea52530d9557, type: 3}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 750666170}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f07591172eb23574db2bea52530d9557, type: 3}
 --- !u!224 &302602274 stripped
@@ -2996,9 +3004,11 @@ MonoBehaviour:
   mic: {fileID: 956548160}
   titleInput: {fileID: 753193572}
   curImageFilePath: 
-  curRecordingFilePath: 
+  curRecordingFileName: 
   noteInput: {fileID: 251858924}
   filename: NoteTest.json
+  entries: []
+  curCollectionIndex: -1
   collectionPage: {fileID: 184425381}
   inventoryPage: {fileID: 316055466}
   unsavedConfirmationPage: {fileID: 381360246}

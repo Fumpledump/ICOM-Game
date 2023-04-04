@@ -21,14 +21,14 @@ public class InputHandler : MonoBehaviour
 
     [SerializeField] TMP_InputField titleInput;
     [SerializeField] string curImageFilePath;
-    [SerializeField] string curRecordingFilePath;
+    [SerializeField] string curRecordingFileName;
     [SerializeField] TMP_InputField noteInput;
     [SerializeField] string filename;
 
-    List<InputEntry> entries = new List<InputEntry>();
+    public List<InputEntry> entries = new List<InputEntry>();
     List<GameObject> collectionSlots = new List<GameObject>(); // grid slots, needs to be replaced by game object in the future
     List<Sprite> collectionSprite = new List<Sprite>();
-    private int curCollectionIndex = -1;
+    public int curCollectionIndex = -1;
 
     // Canvas Part
     public GameObject collectionPage;
@@ -78,22 +78,23 @@ public class InputHandler : MonoBehaviour
     /// <param name="collection">loaded collection</param>
     public void LoadInfoToCollectionPage(InputEntry collection)
     {
+        Debug.Log("Loading Slot: " + curCollectionIndex);
+
         curCollectionIndex = collection.Index;
         curImageFilePath = collection.ImageFilePath;
-        curRecordingFilePath = collection.RecordingFilePath;
+        curRecordingFileName = collection.RecordingFileName;
         titleInput.text = collection.Title;
         noteInput.text = collection.Notes;
 
-        LoadSprite(collectImageHolder, collection.Index);
-        Debug.Log("LoadName " + curCollectionIndex);
-
-        // that collection has the recording, load the recording and set the audioPlayer
-        if (collection.RecordingFilePath != "")
+        if (collection.RecordingClipLength >= 0)
         {
-            recorder.fileName = collection.RecordingFilePath;
-            audioPlayer.LoadAudio();
+            recorder.fileName = collection.RecordingFileName;
+            audioPlayer.LoadSlotAudio(curCollectionIndex, entries[curCollectionIndex].RecordingClipLength);
             audioPlayer.Playable();
         }
+
+        LoadSprite(collectImageHolder, collection.Index);
+        Debug.Log("LoadName " + curCollectionIndex);
     }
 
     /// <summary>
@@ -121,14 +122,16 @@ public class InputHandler : MonoBehaviour
     /// </summary>
     public void CreateNewCollection()
     {
+        audioPlayer.FirstRecord();
+
         OpenCollectionPage();
 
-        curCollectionIndex= entries.Count;
+        curCollectionIndex = entries.Count;
 
         collectImageHolder.sprite = defaultImage;
         titleInput.text = "";
         curImageFilePath = "";
-        curRecordingFilePath = "";
+        curRecordingFileName = "";
         noteInput.text = "";
     }
 
@@ -137,14 +140,15 @@ public class InputHandler : MonoBehaviour
     /// </summary>
     public void ModifyTheList()     
     {
-        //entries.Add(new InputEntry(entries.Count, titleInput.text, imageFilePath, string recordingFilePath, noteInput));
+        //entries.Add(new InputEntry(entries.Count, titleInput.text, imageFilePath, string RecordingFileName, noteInput));
 
         // Old collection is modified
         if (curCollectionIndex < entries.Count && curCollectionIndex >= 0)
         {
             entries[curCollectionIndex].Title = titleInput.text;
             entries[curCollectionIndex].ImageFilePath= curImageFilePath;
-            entries[curCollectionIndex].RecordingFilePath= curRecordingFilePath;
+            entries[curCollectionIndex].RecordingFileName = recorder.fileName;
+            entries[curCollectionIndex].RecordingClipLength = audioPlayer.recordedClipLength;
             entries[curCollectionIndex].Notes = noteInput.text;
             LoadRawImage(entries[curCollectionIndex], collectionSlots[curCollectionIndex].GetComponent<Image>(), curCollectionIndex);
             LoadSprite(collectionSlots[curCollectionIndex].GetComponent<Image>(), curCollectionIndex);
@@ -152,7 +156,7 @@ public class InputHandler : MonoBehaviour
         // New item is added
         else
         {
-            entries.Add(new InputEntry(entries.Count, titleInput.text, curImageFilePath, curRecordingFilePath, noteInput.text));
+            entries.Add(new InputEntry(entries.Count, titleInput.text, curImageFilePath, recorder.fileName, audioPlayer.recordedClipLength, noteInput.text));
             UpdateInventory(entries[entries.Count - 1]);
         }
 

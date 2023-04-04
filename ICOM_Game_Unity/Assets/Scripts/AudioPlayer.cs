@@ -35,6 +35,8 @@ public class AudioPlayer : MonoBehaviour
 
     private Coroutine audioLoadRoutine;
 
+    public InputHandler inputHandler;
+
     //private State curState = State.FirstRecord;
 
     private void Awake()
@@ -93,6 +95,8 @@ public class AudioPlayer : MonoBehaviour
     private IEnumerator LoadAudioRoutine()
     {
         Debug.Log("Loading File: " + audioPath + "/" + audioName);
+        Debug.Log("Loading File:" + audioPath + audioName);
+
 
         using (UnityWebRequest www = UnityWebRequestMultimedia.GetAudioClip(audioPath + "/" + audioName, AudioType.WAV))
         {
@@ -122,6 +126,18 @@ public class AudioPlayer : MonoBehaviour
         //audioSource = gameObject.AddComponent<AudioSource>();
         audioPath = "file://" + Application.persistentDataPath;
 
+
+        audioLoadRoutine = StartCoroutine(LoadAudioRoutine());
+    }
+
+    public void LoadSlotAudio(int currentSlotIndex, float slotClipLength)
+    {
+        // Get Name of Audio File
+        audioName = "AudioCollection" + currentSlotIndex + ".wav";
+
+        audioPath = "file://" + Application.persistentDataPath;
+
+        recordedClipLength = slotClipLength;
 
         audioLoadRoutine = StartCoroutine(LoadAudioRoutine());
     }

@@ -24,6 +24,7 @@ public class Recorder : MonoBehaviour
 
     public AudioPlayer audioPlayer;
     public bool recording;
+    public InputHandler inputHandler;
 
     private void Update()
     {
@@ -49,7 +50,9 @@ public class Recorder : MonoBehaviour
         while (!(Microphone.GetPosition(null) > 0)) { }
         samplesData = new float[audioSource.clip.samples * audioSource.clip.channels];
         audioSource.clip.GetData(samplesData, 0);
-        string filePath = Path.Combine(Application.persistentDataPath, fileName + ".wav");
+        string filePath;
+        fileName = "AudioCollection" + inputHandler.curCollectionIndex;
+        filePath = Path.Combine(Application.persistentDataPath, "AudioCollection" + inputHandler.curCollectionIndex + ".wav");
         // Delete the file if it exists.
         if (File.Exists(filePath))
         {
@@ -59,7 +62,7 @@ public class Recorder : MonoBehaviour
         try
         {
             FileHandler.WriteWAVFile(audioSource.clip, filePath);
-            Debug.Log("File Saved Successfully at StreamingAssets/" + fileName + ".wav");
+            Debug.Log("File Saved Successfully at " + Application.persistentDataPath + "/AudioCollection" + inputHandler.curCollectionIndex + ".wav");
         }
         catch (DirectoryNotFoundException)
         {
