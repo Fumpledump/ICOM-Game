@@ -87,11 +87,13 @@ public class InputHandler : MonoBehaviour
         LoadSprite(collectImageHolder, collection.Index);
         Debug.Log("LoadName " + curCollectionIndex);
 
-        //if (collection.RecordingFilePath != "")
-        //{
-        //    recorder.fileName = collection.RecordingFilePath;
-        //    audioPlayer.LoadAudio();
-        //}
+        // that collection has the recording, load the recording and set the audioPlayer
+        if (collection.RecordingFilePath != "")
+        {
+            recorder.fileName = collection.RecordingFilePath;
+            audioPlayer.LoadAudio();
+            audioPlayer.Playable();
+        }
     }
 
     /// <summary>
@@ -367,7 +369,8 @@ public class InputHandler : MonoBehaviour
 
     public void testFunction()
     {
-        string path = "C:\\Users\\RuniJiang\\Downloads\\catPawClear.png";
+
+        string path = "C:\\Users\\RuniJiang\\Downloads\\IMG_7000-ID.jpg";
         console.text += "\nImage picked at: " + path;
 
         byte[] byteArray = File.ReadAllBytes(path);

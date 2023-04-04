@@ -25,6 +25,7 @@ public class AudioPlayer : MonoBehaviour
     [SerializeField] private GameObject micButton_Start;
     [SerializeField] private GameObject micButton_Recording;
     [SerializeField] private GameObject micButton_ReRecord;
+    [SerializeField] private GameObject micButton_AudioControls;
 
     public float recordedClipLength;
     public bool audioLoaded;
@@ -64,23 +65,29 @@ public class AudioPlayer : MonoBehaviour
         }
     }
 
-    //private void FirstRecord()
-    //{
-    //    micButton_Start.SetActive(true);
-    //    micButton_Recording.SetActive(false);
-    //    micButton_ReRecord.SetActive(false);
-    //}
+    public void FirstRecord()
+    {
+        micButton_Start.SetActive(true);
+        micButton_Recording.SetActive(false);
+        micButton_ReRecord.SetActive(false);
+        micButton_AudioControls.SetActive(false);
+    }
 
-    //private void Recording() 
-    //{
-    //    micButton_Start.SetActive(false);
-    //    micButton_Recording.SetActive(true);
-    //    micButton_ReRecord.SetActive(false);
-    //}
+    public void Recording()
+    {
+        micButton_Start.SetActive(false);
+        micButton_Recording.SetActive(true);
+        micButton_ReRecord.SetActive(false);
+        micButton_AudioControls.SetActive(false);
+    }
 
-    //private void PlayRecording()
-    //{ 
-    //}
+    public void Playable()
+    {
+        micButton_Start.SetActive(false);
+        micButton_Recording.SetActive(false);
+        micButton_ReRecord.SetActive(true);
+        micButton_AudioControls.SetActive(true);
+    }
 
 
     private IEnumerator LoadAudioRoutine()
