@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.IO;
 using System.Text;
 using UnityEngine;
@@ -25,6 +26,9 @@ public class Recorder : MonoBehaviour
     public AudioPlayer audioPlayer;
     public bool recording;
     public InputHandler inputHandler;
+    public GameObject loadingCanvas;
+
+    private Coroutine audioSaveRoutine;
 
     private void Update()
     {
@@ -43,8 +47,15 @@ public class Recorder : MonoBehaviour
         recording = true;
     }
 
-    public void Save()
+    public void SaveRecording()
     {
+        audioSaveRoutine = StartCoroutine(Save(0.01f));
+    }
+
+    private IEnumerator Save(float delay)
+    {
+        loadingCanvas.SetActive(true);
+        yield return new WaitForSeconds(delay);
         recording = false;
 
         while (!(Microphone.GetPosition(null) > 0)) { }
@@ -67,7 +78,11 @@ public class Recorder : MonoBehaviour
         catch (DirectoryNotFoundException)
         {
             Debug.LogError("Please, Create a StreamingAssets Directory in the Assets Folder");
-        } 
+        }
+
+        loadingCanvas.SetActive(false);
+
+        StopCoroutine(audioSaveRoutine);
     }
 
 
