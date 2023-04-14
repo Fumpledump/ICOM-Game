@@ -11,7 +11,10 @@ using System.Text;
 
 public class InputHandler : MonoBehaviour
 {
+    public static InputHandler instance;
+
     public GameObject slotPrefab;
+    public GameObject slotStackPrefab;
     public Sprite defaultImage;
 
     // Mic variables
@@ -26,9 +29,13 @@ public class InputHandler : MonoBehaviour
     [SerializeField] string filename;
 
     public List<InputEntry> entries = new List<InputEntry>();
+    List<GameObject> collectionSlotsStacks = new List<GameObject>(); // grid slots, needs to be replaced by game object in the future
     List<GameObject> collectionSlots = new List<GameObject>(); // grid slots, needs to be replaced by game object in the future
+    List<GameObject> slotStacks = new List<GameObject>(); // grid slots, needs to be replaced by game object in the future
     List<Sprite> collectionSprite = new List<Sprite>();
     public int curCollectionIndex = -1;
+
+    public int totalEntries; // Total amount of entries in the game.
 
     // Canvas Part
     public GameObject collectionPage;
@@ -40,6 +47,18 @@ public class InputHandler : MonoBehaviour
     public Texture2D texture;
     public Image collectImageHolder;
     [SerializeField] string imagePath;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(instance);
+        }
+    }
 
     private void Start()
     {
@@ -55,21 +74,35 @@ public class InputHandler : MonoBehaviour
         {
             InputEntry entry = entries[i];
             // set up the grid
-            // ----------- In the future, this part will be modified to the real game object ----- //
-            collectionSlots.Add(Instantiate(slotPrefab));
-            collectionSlots[i].transform.parent = grid.transform;
+            if (i % 3 == 0 || i == 0) // Create New Slot Stack
+            {
+                GameObject newSlotStack = Instantiate(slotStackPrefab);
+                collectionSlotsStacks.Add(newSlotStack);
+                newSlotStack.transform.SetParent(grid.transform);
 
-            Button collectionBtn = collectionSlots[i].GetComponent<Button>();
-            collectionBtn.onClick.RemoveAllListeners();
-            collectionBtn.onClick.AddListener(() => {
-                OpenCollectionPage(entry);
-                curCollectionIndex = entry.Index;
-            });
-            // grid image showing
-            Image collectionImage = collectionSlots[i].GetComponent<Image>();
-            LoadRawImage(entry, collectionImage, i);
-            LoadSprite(collectionImage, i);
+                // Create New Slot
+                GameObject newSlot = Instantiate(slotPrefab);
+                newSlot.transform.SetParent(newSlotStack.transform);
+
+                // Add to Slot Stack
+                newSlotStack.GetComponent<Slot>().slots.Add(newSlot);
+                newSlotStack.GetComponent<Slot>().entries.Add(entry);
+                newSlotStack.GetComponent<Slot>().UpdateSlots();
+            }
+            else // Add to Slot Stack
+            {
+                // Create New Slot
+                GameObject newSlot = Instantiate(slotPrefab);
+                newSlot.transform.SetParent(collectionSlotsStacks[collectionSlotsStacks.Count - 1].transform);
+
+                // Add to Slot Stack
+                collectionSlotsStacks[collectionSlotsStacks.Count - 1].GetComponent<Slot>().slots.Add(newSlot);
+                collectionSlotsStacks[collectionSlotsStacks.Count - 1].GetComponent<Slot>().entries.Add(entry);
+                collectionSlotsStacks[collectionSlotsStacks.Count - 1].GetComponent<Slot>().UpdateSlots();
+            }
         }
+
+        totalEntries = entries.Count;
     }
 
     /// <summary>
@@ -104,17 +137,35 @@ public class InputHandler : MonoBehaviour
     /// <param name="entry">added item</param>
     public void UpdateInventory(InputEntry entry)
     {
-        collectionSlots.Add(Instantiate(slotPrefab));
-        collectionSlots[collectionSlots.Count - 1].transform.parent = grid.transform;
-        Button collectionBtn = collectionSlots[collectionSlots.Count - 1].GetComponent<Button>();
-        collectionBtn.onClick.RemoveAllListeners();
-        collectionBtn.onClick.AddListener(() => {
-            OpenCollectionPage(entry);
-            curCollectionIndex = entry.Index;
-        });
-        Image collectionImage = collectionSlots[collectionSlots.Count - 1].GetComponent<Image>();
-        LoadRawImage(entry, collectionImage, entry.Index);
-        LoadSprite(collectionImage, entry.Index);
+        if (totalEntries % 3 == 0) // Create New Slot Stack
+        {
+            GameObject newSlotStack = Instantiate(slotStackPrefab);
+            collectionSlotsStacks.Add(newSlotStack);
+            newSlotStack.transform.SetParent(grid.transform);
+
+            // Create New Slot
+            GameObject newSlot = Instantiate(slotPrefab);
+            newSlot.transform.SetParent(newSlotStack.transform);
+
+            // Add to Slot Stack
+            newSlotStack.GetComponent<Slot>().slots.Add(newSlot);
+            newSlotStack.GetComponent<Slot>().UpdateSlots();
+        }
+        else // Add to Slot Stack
+        {
+            // Create New Slot
+            GameObject newSlot = Instantiate(slotPrefab);
+            newSlot.transform.SetParent(collectionSlotsStacks[collectionSlotsStacks.Count - 1].transform);
+
+            // Add to Slot Stack
+            collectionSlotsStacks[collectionSlotsStacks.Count - 1].GetComponent<Slot>().slots.Add(newSlot);
+            collectionSlotsStacks[collectionSlotsStacks.Count - 1].GetComponent<Slot>().UpdateSlots();
+
+            // Bugfix Position
+            newSlot.transform.localPosition = Vector3.zero;
+        }
+
+        totalEntries++;
     }
 
     /// <summary>
@@ -262,6 +313,7 @@ public class InputHandler : MonoBehaviour
     {
         holder.sprite = collectionSprite[index];
     }
+
     public void LoadRawImage(InputEntry collection, Image holder, int index)
     {
         //Debug.Log(entries[entries.Count - 1].ImageFilePath);
