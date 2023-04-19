@@ -22,14 +22,13 @@ public class Slot : MonoBehaviour
             if (currentSlot == i)
             {
                 slots[i].gameObject.SetActive(true);
-
+                UpdateSlotInfo(currentSlot, entries[currentSlot]);
             }
             else
             {
                 slots[i].gameObject.SetActive(false);
             }
         }
-        UpdateSlotInfo(currentSlot, entries[currentSlot]);
     }
 
     private void UpdateSlotInfo(int slotIndex, InputEntry entry)
@@ -39,8 +38,8 @@ public class Slot : MonoBehaviour
         collectionBtn.onClick.RemoveAllListeners();
         collectionBtn.onClick.AddListener(() =>
         {
-            inputHandler.OpenCollectionPage(entries[slotIndex]);
-            inputHandler.curCollectionIndex = entries[slotIndex].Index;
+            inputHandler.OpenCollectionPage(entry);
+            inputHandler.curCollectionIndex = entry.Index;
         });
 
         /*

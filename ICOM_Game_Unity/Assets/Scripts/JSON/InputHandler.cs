@@ -149,7 +149,7 @@ public class InputHandler : MonoBehaviour
 
             // Add to Slot Stack
             newSlotStack.GetComponent<Slot>().slots.Add(newSlot);
-            newSlotStack.GetComponent<Slot>().UpdateSlots();
+            newSlotStack.GetComponent<Slot>().entries.Add(entry);
         }
         else // Add to Slot Stack
         {
@@ -159,6 +159,7 @@ public class InputHandler : MonoBehaviour
 
             // Add to Slot Stack
             collectionSlotsStacks[collectionSlotsStacks.Count - 1].GetComponent<Slot>().slots.Add(newSlot);
+            collectionSlotsStacks[collectionSlotsStacks.Count - 1].GetComponent<Slot>().entries.Add(entry);
             collectionSlotsStacks[collectionSlotsStacks.Count - 1].GetComponent<Slot>().UpdateSlots();
 
             // Bugfix Position
