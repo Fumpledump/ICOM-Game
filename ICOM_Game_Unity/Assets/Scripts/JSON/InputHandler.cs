@@ -210,6 +210,7 @@ public class InputHandler : MonoBehaviour
                 CloseCollectionPage();
             }
         }
+
         // Old item unsaved
         else
         {
