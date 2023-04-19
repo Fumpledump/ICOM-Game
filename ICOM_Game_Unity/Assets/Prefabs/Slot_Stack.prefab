@@ -599,7 +599,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputHandler: {fileID: 0}
   slots: []
+  entries: []
   currentSlot: 0
+  test: {fileID: 21300000, guid: 660e627a727e6214b8cdae965572c00b, type: 3}
 --- !u!1 &5610912297998470798
 GameObject:
   m_ObjectHideFlags: 0

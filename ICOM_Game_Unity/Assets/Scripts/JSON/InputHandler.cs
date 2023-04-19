@@ -32,7 +32,7 @@ public class InputHandler : MonoBehaviour
     List<GameObject> collectionSlotsStacks = new List<GameObject>(); // grid slots, needs to be replaced by game object in the future
     List<GameObject> collectionSlots = new List<GameObject>(); // grid slots, needs to be replaced by game object in the future
     List<GameObject> slotStacks = new List<GameObject>(); // grid slots, needs to be replaced by game object in the future
-    List<Sprite> collectionSprite = new List<Sprite>();
+    public List<Sprite> collectionSprite = new List<Sprite>();
     public int curCollectionIndex = -1;
 
     public int totalEntries; // Total amount of entries in the game.
@@ -73,6 +73,7 @@ public class InputHandler : MonoBehaviour
         for (int i = 0; i < entries.Count; i++)
         {
             InputEntry entry = entries[i];
+            LoadRawImage(entry, i);
             // set up the grid
             if (i % 3 == 0 || i == 0) // Create New Slot Stack
             {
@@ -100,6 +101,7 @@ public class InputHandler : MonoBehaviour
                 collectionSlotsStacks[collectionSlotsStacks.Count - 1].GetComponent<Slot>().entries.Add(entry);
                 collectionSlotsStacks[collectionSlotsStacks.Count - 1].GetComponent<Slot>().UpdateSlots();
             }
+      
         }
 
         totalEntries = entries.Count;
@@ -165,7 +167,7 @@ public class InputHandler : MonoBehaviour
             // Bugfix Position
             newSlot.transform.localPosition = Vector3.zero;
         }
-
+        LoadRawImage(entry,entry.Index);
         totalEntries++;
     }
 
@@ -202,7 +204,7 @@ public class InputHandler : MonoBehaviour
             entries[curCollectionIndex].RecordingFileName = recorder.fileName;
             entries[curCollectionIndex].RecordingClipLength = audioPlayer.recordedClipLength;
             entries[curCollectionIndex].Notes = noteInput.text;
-            LoadRawImage(entries[curCollectionIndex], collectionSlots[curCollectionIndex].GetComponent<Image>(), curCollectionIndex);
+            LoadRawImage(entries[curCollectionIndex], curCollectionIndex);
             LoadSprite(collectionSlots[curCollectionIndex].GetComponent<Image>(), curCollectionIndex);
         }
         // New item is added
@@ -315,7 +317,7 @@ public class InputHandler : MonoBehaviour
         holder.sprite = collectionSprite[index];
     }
 
-    public void LoadRawImage(InputEntry collection, Image holder, int index)
+    public void LoadRawImage(InputEntry collection, int index)
     {
         //Debug.Log(entries[entries.Count - 1].ImageFilePath);
         //  && File.Exists(collection.ImageFilePath)

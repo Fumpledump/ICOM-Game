@@ -48,6 +48,14 @@ public class Slot : MonoBehaviour
         inputHandler.LoadRawImage(entry, collectionImage, slotIndex);
         inputHandler.LoadSprite(collectionImage, slotIndex);
         */
+
+        Image collectionImage = slots[slotIndex].GetComponent<Image>();
+        if (inputHandler != null)
+        {
+            inputHandler.LoadSprite(collectionImage, entry.Index);
+        }
+        //collectionImage.sprite = inputHandler.collectionSprite[entry.Index];
+        //Debug.Log(entry.Index);
     }
 
     // Change Main Slot to the next slot
