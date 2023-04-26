@@ -54,8 +54,15 @@ public class Slot : MonoBehaviour
         {
             inputHandler.LoadSprite(collectionImage, entry.Index);
         }
-        //collectionImage.sprite = inputHandler.collectionSprite[entry.Index];
-        //Debug.Log(entry.Index);
+
+        if (entry.Favorited)
+        {
+            slots[slotIndex].transform.Find("Favorited").gameObject.SetActive(true);
+        }
+        else
+        {
+            slots[slotIndex].transform.Find("Favorited").gameObject.SetActive(false);
+        }
     }
 
     // Change Main Slot to the next slot

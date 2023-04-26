@@ -220,8 +220,7 @@ public class InputHandler : MonoBehaviour
             entries[curCollectionIndex].RecordingClipLength = audioPlayer.recordedClipLength;
             entries[curCollectionIndex].Notes = noteInput.text;
             entries[curCollectionIndex].Favorited = curFavorited;
-            //LoadRawImage(entries[curCollectionIndex], curCollectionIndex);
-            //LoadSprite(collectionSlots[curCollectionIndex].GetComponent<Image>(), curCollectionIndex);
+            collectionSlotsStacks[curCollectionIndex / 3].GetComponent<Slot>().UpdateSlots();
         }
         // New item is added
         else
