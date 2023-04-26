@@ -27,6 +27,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField] string curRecordingFileName;
     [SerializeField] TMP_InputField noteInput;
     [SerializeField] string filename;
+    [SerializeField] bool curFavorited;
 
     public List<InputEntry> entries = new List<InputEntry>();
     List<GameObject> collectionSlotsStacks = new List<GameObject>(); // grid slots, needs to be replaced by game object in the future
@@ -46,6 +47,7 @@ public class InputHandler : MonoBehaviour
     public TextMeshProUGUI console;
     public Texture2D texture;
     public Image collectImageHolder;
+    public GameObject favaritedButton;
     [SerializeField] string imagePath;
 
     void Awake()
@@ -120,12 +122,22 @@ public class InputHandler : MonoBehaviour
         curRecordingFileName = collection.RecordingFileName;
         titleInput.text = collection.Title;
         noteInput.text = collection.Notes;
+        curFavorited = collection.Favorited;
 
         if (collection.RecordingClipLength >= 0)
         {
             recorder.fileName = collection.RecordingFileName;
             audioPlayer.LoadSlotAudio(curCollectionIndex, entries[curCollectionIndex].RecordingClipLength);
             audioPlayer.Playable();
+        }
+
+        if (collection.Favorited)
+        {
+            favaritedButton.gameObject.SetActive(true);
+        }
+        else 
+        {
+            favaritedButton.gameObject.SetActive(false);
         }
 
         LoadSprite(collectImageHolder, collection.Index);
@@ -187,6 +199,9 @@ public class InputHandler : MonoBehaviour
         curImageFilePath = "";
         curRecordingFileName = "";
         noteInput.text = "";
+
+        curFavorited = false;
+        favaritedButton.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -204,13 +219,14 @@ public class InputHandler : MonoBehaviour
             entries[curCollectionIndex].RecordingFileName = recorder.fileName;
             entries[curCollectionIndex].RecordingClipLength = audioPlayer.recordedClipLength;
             entries[curCollectionIndex].Notes = noteInput.text;
-            LoadRawImage(entries[curCollectionIndex], curCollectionIndex);
-            LoadSprite(collectionSlots[curCollectionIndex].GetComponent<Image>(), curCollectionIndex);
+            entries[curCollectionIndex].Favorited = curFavorited;
+            //LoadRawImage(entries[curCollectionIndex], curCollectionIndex);
+            //LoadSprite(collectionSlots[curCollectionIndex].GetComponent<Image>(), curCollectionIndex);
         }
         // New item is added
         else
         {
-            entries.Add(new InputEntry(entries.Count, titleInput.text, curImageFilePath, recorder.fileName, audioPlayer.recordedClipLength, noteInput.text));
+            entries.Add(new InputEntry(entries.Count, titleInput.text, curImageFilePath, recorder.fileName, audioPlayer.recordedClipLength, noteInput.text, curFavorited));
             UpdateInventory(entries[entries.Count - 1]);
         }
 
@@ -271,7 +287,8 @@ public class InputHandler : MonoBehaviour
             Debug.Log("Old things " + curCollectionIndex);
             if (titleInput.text != entries[curCollectionIndex].Title ||
                 curImageFilePath != entries[curCollectionIndex].ImageFilePath ||
-                noteInput.text != entries[curCollectionIndex].Notes)
+                noteInput.text != entries[curCollectionIndex].Notes ||
+                curFavorited != entries[curCollectionIndex].Favorited)
             {
                 unsavedConfirmationPage.SetActive(true);
             }
@@ -307,6 +324,17 @@ public class InputHandler : MonoBehaviour
         inventoryPage.SetActive(true);
     }
 
+    public void FavoriteCollection() 
+    {
+        favaritedButton.SetActive(true);
+        curFavorited = true;
+    }
+
+    public void UnFavoriteCollection()
+    {
+        favaritedButton.SetActive(false);
+        curFavorited = false;
+    }
 
     /// <summary>
     /// Load Sprite for item

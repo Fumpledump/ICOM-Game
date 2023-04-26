@@ -9,9 +9,10 @@ public class InputEntry
     public string RecordingFileName;
     public float RecordingClipLength;
     public string Notes;
+    public bool Favorited;
 
 
-    public InputEntry(int index, string title, string imageFilePath, string recordingFileName, float recordingClipLength, string notes)
+    public InputEntry(int index, string title, string imageFilePath, string recordingFileName, float recordingClipLength, string notes, bool favorited)
     {
         Index = index;
         Title = title;
@@ -19,6 +20,7 @@ public class InputEntry
         RecordingFileName = recordingFileName;
         RecordingClipLength = recordingClipLength;
         Notes = notes;
+        Favorited = favorited;
     }
 
     //public InputEntry(int index, string title, string imageFilePath, string notes)
