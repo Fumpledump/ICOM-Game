@@ -320,17 +320,10 @@ public class InputHandler : MonoBehaviour
 
     public void LoadRawImage(InputEntry collection, int index)
     {
-        //Debug.Log(entries[entries.Count - 1].ImageFilePath);
-        //  && File.Exists(collection.ImageFilePath)
         curImageFilePath = collection.ImageFilePath;
         if (collection.ImageFilePath != "")
         {
             Sprite s = IMG2Sprite.LoadNewSprite(collection.ImageFilePath);
-            //collectionSprite.Add(s);
-            if (s.rect.width < s.rect.height)
-            {
-                //s.ro
-            }
             collectionSprite.Insert(index, s);
 
             //byte[] byteArray = File.ReadAllBytes(collection.ImageFilePath);
@@ -349,123 +342,7 @@ public class InputHandler : MonoBehaviour
         }
     }
 
-    void OnEnable()
-    {
-        //NativeToolkit.OnScreenshotSaved += ScreenshotSaved;
-        //NativeToolkit.OnImageSaved += ImageSaved;
-        NativeToolkit.OnImagePicked += ImagePicked;
-        NativeToolkit.OnCameraShotComplete += CameraShotComplete;
-
-
-    }
-
-    void OnDisable()
-    {
-        //NativeToolkit.OnScreenshotSaved -= ScreenshotSaved;
-        //NativeToolkit.OnImageSaved -= ImageSaved;
-        NativeToolkit.OnImagePicked -= ImagePicked;
-        NativeToolkit.OnCameraShotComplete -= CameraShotComplete;
-    }
-
-
-    //=============================================================================
-    // Button handlers From Native Toolkit
-    //=============================================================================
-
-    public void OnSaveScreenshotPress()
-    {
-        NativeToolkit.SaveScreenshot("MyScreenshot", "MyScreenshotFolder", "jpeg");
-    }
-
-    public void OnSaveImagePress()
-    {
-        NativeToolkit.SaveImage(texture, "MyImage", "png");
-    }
-
-    public void OnPickImagePress()
-    {
-        NativeToolkit.PickImage();
-    }
-    public void OnCameraPress()
-    {
-        NativeToolkit.TakeCameraShot();
-    }
-
-
-
-    //=============================================================================
-    // Callbacks From Native ToolKit
-    //=============================================================================
-
-    void ScreenshotSaved(string path)
-    {
-        console.text += "\n" + "Screenshot saved to: " + path;
-    }
-
-    void ImageSaved(string path)
-    {
-        imagePath = path;
-        console.text += "\n" + texture.name + " saved to: " + path;
-
-    }
-
-    void ImagePicked(Texture2D img, string path)
-    {
-        imagePath = path;
-        console.text += "\nImage picked at: " + imagePath;
-        // byte[] byteArray = File.ReadAllBytes(Application.persistentDataPath + "/" + imagePath);
-        byte[] byteArray = File.ReadAllBytes(imagePath);
-        Texture2D texture = new Texture2D(8, 8);
-        texture.LoadImage(byteArray);
-        Sprite s = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero, 1f);
-        collectImageHolder.sprite = s;
-
-        //string writePath = Application.persistentDataPath + $"/test_{entries.Count - 1}.png";
-        string writePath = Application.persistentDataPath + $"/{FileHandler.GenerateUniqueId()}.png";
-        curImageFilePath = writePath;
-        File.WriteAllBytes(writePath, byteArray);
-
-        Destroy(img);
-    }
-
-
-    public void testFunction()
-    {
-
-        string path = "C:\\Users\\RuniJiang\\Downloads\\IMG_7000-ID.jpg";
-        console.text += "\nImage picked at: " + path;
-
-        byte[] byteArray = File.ReadAllBytes(path);
-
-        Texture2D texture = new Texture2D(8, 8);
-        texture.LoadImage(byteArray);
-        Sprite s = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero, 1f);
-        collectImageHolder.sprite = s;
-
-        string writePath = Application.persistentDataPath + $"/test_{entries.Count - 1}.png";
-        curImageFilePath = writePath;
-        File.WriteAllBytes(writePath, byteArray);
-    }
-
-    void CameraShotComplete(Texture2D img, string path)
-    {
-        imagePath = path;
-        console.text += "\nImage picked at: " + imagePath;
-        // byte[] byteArray = File.ReadAllBytes(Application.persistentDataPath + "/" + imagePath);
-        byte[] byteArray = File.ReadAllBytes(imagePath);
-        Texture2D texture = new Texture2D(8, 8);
-        texture.LoadImage(byteArray);
-        Sprite s = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero, 1f);
-        collectImageHolder.sprite = s;
-
-        //string writePath = Application.persistentDataPath + $"/test_{entries.Count - 1}.png";
-        string writePath = Application.persistentDataPath + $"/{FileHandler.GenerateUniqueId()}.png";
-        curImageFilePath = writePath;
-        File.WriteAllBytes(writePath, byteArray);
-
-        Destroy(img);
-    }
-
+ 
     public void OnTakePictureTest()
     {
         TakePicture(512);
