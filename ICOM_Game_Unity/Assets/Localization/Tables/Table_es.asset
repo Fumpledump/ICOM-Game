@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Table_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 5030f014472da434d81eec00fd21d02a, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 20543803392
+    m_Localized: "El D\xEDa Internacional de los Museos 2023 se centra en la sostenibilidad
+      y el bienestar. Los museos son contribuyentes clave para el bienestar y el
+      desarrollo sostenible de nuestras comunidades. Todos los museos tienen un papel
+      que desempe\xF1ar en la configuraci\xF3n y creaci\xF3n de futuros sostenibles,
+      y pueden hacerlo a trav\xE9s de programas educativos, exposiciones, divulgaci\xF3n
+      comunitaria e investigaci\xF3n.\r\nCada a\xF1o desde 2020, el D\xEDa Internacional
+      de los Museos respalda un conjunto de objetivos de los Objetivos de Desarrollo
+      Sostenible de las Naciones Unidas. En 2023, la atenci\xF3n se centrar\xE1 en:\r\n-Objetivo
+      3 Salud y Bienestar Mundial: Garantizar una vida sana y promover el bienestar
+      para todos en todas las edades, en particular en lo que respecta a la salud
+      mental y el aislamiento social.\r\n-Objetivo 13 Acci\xF3n Clim\xE1tica: Tomar
+      medidas urgentes para combatir el cambio clim\xE1tico y sus impactos, adoptando
+      pr\xE1cticas bajas en carbono en el Norte Global y estrategias de mitigaci\xF3n
+      en el Sur Global.\r\n-Objetivo 15 Vida de ecosistemas terrestres: Proteger,
+      restaurar y promover el uso sostenible de los ecosistemas terrestres, amplificando
+      las voces de los l\xEDderes ind\xEDgenas y creando conciencia sobre la p\xE9rdida
+      de la biodiversidad.\r\nMi Mini Museo se centra principalmente en el Objetivo
+      3, mediante la creaci\xF3n de un juego que permite estar presente en el momento
+      y reflexionar sobre lo que les da alegr\xEDa.\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 915675385856
+    m_Localized: "Este juego fue posible gracias a una colaboraci\xF3n entre el Consejo
+      Internacional de Museos y los estudiantes del Instituto de Tecnolog\xEDa de
+      Rochester en los programas de Dise\xF1o y Desarrollo de Juegos y Estudios de
+      Museos.\r\n\r\nMentor del personal de dise\xF1o de juegos    Mentora de Personal
+      de Estudios de Museo\r\n            Elouise \u201CWeez\u201D Oyzon                                             
+      Juliee Decker \r\n\r\nEstudiantes de dise\xF1o de juegos                  
+      Museum Studies Student \r\n             John Haley                                                 
+      Sydney Arcuri \r\n             Runi Jiang \r\n"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
