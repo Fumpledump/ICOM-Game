@@ -20,15 +20,15 @@ MonoBehaviour:
     - rid: 7489489025892876313
   m_TableData:
   - m_Id: 20543803392
-    m_Localized: "\tInternational Museum Day 2023 focuses on sustainability and well-being.
-      Museums are key contributors to the well-being and the sustainable development
-      of our communities. All museums have a role to play in shaping and creating
-      sustainable futures, and they can do this through educational programs, exhibitions,
-      community outreach, and research. \r\n\n\tEach year since 2020, the International
-      Museum Day Supports a set of Goals from the Sustainable Development Goals of
-      the United Nations. In 2023, the focus will be on:\r\n\n-Goal 3 Global Health
-      and Well-being: Ensure healthy lives and promote well-being for all at all
-      ages, in particular concerning mental health and social isolation.\r\n\n-Goal
+    m_Localized: "\n\tInternational Museum Day 2023 focuses on sustainability and
+      well-being. Museums are key contributors to the well-being and the sustainable
+      development of our communities. All museums have a role to play in shaping
+      and creating sustainable futures, and they can do this through educational
+      programs, exhibitions, community outreach, and research. \r\n\n\tEach year
+      since 2020, the International Museum Day Supports a set of Goals from the Sustainable
+      Development Goals of the United Nations. In 2023, the focus will be on:\r\n\n-Goal
+      3 Global Health and Well-being: Ensure healthy lives and promote well-being
+      for all at all ages, in particular concerning mental health and social isolation.\r\n\n-Goal
       13 Climate Action: Take urgent action to combat climate change and its impacts,
       adopting low-carbon practices in the Global North and mitigation strategies
       in the Global South.\r\n\n- Goal 15 Life on Land: Protect, restore, and promote
