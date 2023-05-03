@@ -220,6 +220,9 @@ public class InputHandler : MonoBehaviour
             entries[curCollectionIndex].RecordingClipLength = audioPlayer.recordedClipLength;
             entries[curCollectionIndex].Notes = noteInput.text;
             entries[curCollectionIndex].Favorited = curFavorited;
+            collectionSprite.RemoveAt(curCollectionIndex);
+            collectionSprite.Insert(curCollectionIndex, collectImageHolder.sprite);
+            //LoadSprite(collectImageHolder, curCollectionIndex);
             collectionSlotsStacks[curCollectionIndex / 3].GetComponent<Slot>().UpdateSlots();
         }
         // New item is added
@@ -352,20 +355,10 @@ public class InputHandler : MonoBehaviour
         {
             Sprite s = IMG2Sprite.LoadNewSprite(collection.ImageFilePath);
             collectionSprite.Insert(index, s);
-
-            //byte[] byteArray = File.ReadAllBytes(collection.ImageFilePath);
-
-            //Texture2D texture = new Texture2D(8, 8);
-            //texture.LoadImage(byteArray);
-            //Sprite s = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero, 1f);
-            
-            //holder.sprite = s;
         }
         else 
         {
             collectionSprite.Insert(index, defaultImage);
-            //collectionSprite.Add(defaultImage);
-            //holder.sprite = defaultImage;
         }
     }
 
@@ -390,24 +383,6 @@ public class InputHandler : MonoBehaviour
                     Debug.Log("Couldn't load texture from " + path);
                     return;
                 }
-
-                //// Assign texture to a temporary quad and destroy it after 5 seconds
-                //GameObject quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
-                //quad.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 2.5f;
-                //quad.transform.forward = Camera.main.transform.forward;
-                //quad.transform.localScale = new Vector3(1f, texture.height / (float)texture.width, 1f);
-
-                //Material material = quad.GetComponent<Renderer>().material;
-                //if (!material.shader.isSupported) // happens when Standard shader is not included in the build
-                //    material.shader = Shader.Find("Legacy Shaders/Diffuse");
-
-                //material.mainTexture = texture;
-
-                //Destroy(quad, 5f);
-
-                //// If a procedural texture is not destroyed manually, 
-                //// it will only be freed after a scene change
-                //Destroy(texture, 5f);
 
                 Sprite s = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero, 1f);
                 collectImageHolder.sprite = s;
@@ -441,24 +416,6 @@ public class InputHandler : MonoBehaviour
                     Debug.Log("Couldn't load texture from " + path);
                     return;
                 }
-
-                //// Assign texture to a temporary quad and destroy it after 5 seconds
-                //GameObject quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
-                //quad.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 2.5f;
-                //quad.transform.forward = Camera.main.transform.forward;
-                //quad.transform.localScale = new Vector3(1f, texture.height / (float)texture.width, 1f);
-
-                //Material material = quad.GetComponent<Renderer>().material;
-                //if (!material.shader.isSupported) // happens when Standard shader is not included in the build
-                //    material.shader = Shader.Find("Legacy Shaders/Diffuse");
-
-                //material.mainTexture = texture;
-
-                //Destroy(quad, 5f);
-
-                //// If a procedural texture is not destroyed manually, 
-                //// it will only be freed after a scene change
-                //Destroy(texture, 5f);
 
                 Sprite s = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero, 1f);
                 collectImageHolder.sprite = s;
