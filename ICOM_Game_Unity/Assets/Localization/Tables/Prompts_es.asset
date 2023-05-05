@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Prompts_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 466865c6ded88f54882b796843b5ef25, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 23265906688
+    m_Localized: "\xBFQu\xE9 te hace sentir conectado con la obra de arte?\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37048389632
+    m_Localized: " \xBFQu\xE9 te hace sentir conectado con la obra de arte?\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43989962752
+    m_Localized: "\xBFQu\xE9 te hace sentir conectado con la obra de arte?\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6898510303232
+    m_Localized: "T\xFArnense enumerando adjetivos para describir este objeto."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6988562010112
+    m_Localized: "\xBFQu\xE9 preguntas te gustar\xEDa hacerle al artista sobre esta
+      obra?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7097249009664
+    m_Localized: "\xBFQu\xE9 notas sobre los materiales con los que est\xE1 hecho
+      este objeto?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7162499796992
+    m_Localized: "Hable sobre lo que le llama la atenci\xF3n sobre los colores, patrones
+      o materiales."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7230191669248
+    m_Localized: "\xBFQu\xE9 pasa con este objeto que te trae alegr\xEDa?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7311422754816
+    m_Localized: "\xBFQu\xE9 notaste primero sobre este objeto? \xBFPor qu\xE9 crees
+      que es esto?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7388451147776
+    m_Localized: "Describe por qu\xE9 este objeto te trae alegr\xEDa."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

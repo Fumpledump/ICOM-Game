@@ -48,6 +48,20 @@ MonoBehaviour:
       Studies Student\nSydney Arcuri\n\n( ICOM Members)\n(TBD)"
     m_Metadata:
       m_Items: []
+  - m_Id: 2515604321964032
+    m_Localized: 'What makes you feel connected to the art work? '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2515632318943232
+    m_Localized: 'Discuss what you discovered as you look at the object for a long
+      period of time? Are the discoveries different? '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2515845737713664
+    m_Localized: What emotions arise while looking at this object? What do you see
+      that makes you say this?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

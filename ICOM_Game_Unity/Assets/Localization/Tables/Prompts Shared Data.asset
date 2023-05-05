@@ -10,39 +10,59 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: Table Shared Data
+  m_Name: Prompts Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: Table
-  m_TableCollectionNameGuidString: 5030f014472da434d81eec00fd21d02a
+  m_TableCollectionName: Prompts
+  m_TableCollectionNameGuidString: 466865c6ded88f54882b796843b5ef25
   m_Entries:
-  - m_Id: 20543803392
-    m_Key: About
-    m_Metadata:
-      m_Items: []
-  - m_Id: 915675385856
-    m_Key: Credit
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2515604321964032
+  - m_Id: 23265906688
     m_Key: 1
     m_Metadata:
       m_Items: []
-  - m_Id: 2515632318943232
+  - m_Id: 37048389632
     m_Key: 2
     m_Metadata:
       m_Items: []
-  - m_Id: 2515845737713664
+  - m_Id: 43989962752
     m_Key: 3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6898510303232
+    m_Key: 4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6988562010112
+    m_Key: 5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7097249009664
+    m_Key: 6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7162499796992
+    m_Key: 7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7230191669248
+    m_Key: 8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7311422754816
+    m_Key: 9
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7388451147776
+    m_Key: 10
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 7489489025892876312
+    rid: 6608336586609262594
   references:
     version: 2
     RefIds:
-    - rid: 7489489025892876312
+    - rid: 6608336586609262594
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1682687488166
+        m_CustomEpoch: 1683290083916

@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Prompts_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: 466865c6ded88f54882b796843b5ef25, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 23265906688
+    m_Localized: "Qu'est-ce qui vous fait vous sentir connect\xE9 \xE0 l'\u0153uvre
+      d'art ?\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37048389632
+    m_Localized: "Qu'est-ce qui vous fait vous sentir connect\xE9 \xE0 l'\u0153uvre
+      d'art ?\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43989962752
+    m_Localized: "Qu'est-ce qui vous fait vous sentir connect\xE9 \xE0 l'\u0153uvre
+      d'art ?\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6898510303232
+    m_Localized: "\xC0 tour de r\xF4le, \xE9num\xE9rez les adjectifs pour d\xE9crire
+      cet objet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6988562010112
+    m_Localized: "Quelles questions aimeriez-vous poser \xE0 l'artiste sur cette
+      \u0153uvre ?\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7097249009664
+    m_Localized: "Que remarquez-vous sur les mat\xE9riaux avec lesquels cet objet
+      est fabriqu\xE9 ?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7162499796992
+    m_Localized: "Discutez de ce qui vous distingue des couleurs, des motifs ou des
+      mat\xE9riaux."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7230191669248
+    m_Localized: Qu'en est-il de cet objet qui vous apporte de la joie ?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7311422754816
+    m_Localized: "Qu'avez-vous remarqu\xE9 en premier \xE0 propos de cet objet ?
+      Pourquoi pensez-vous cela est?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7388451147776
+    m_Localized: "D\xE9crivez pourquoi cet objet vous apporte de la joie."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

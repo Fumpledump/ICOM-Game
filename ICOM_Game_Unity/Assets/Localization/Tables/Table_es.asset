@@ -52,6 +52,18 @@ MonoBehaviour:
       \r\n\nMuseum Studies Student \nSydney Arcuri \r\n"
     m_Metadata:
       m_Items: []
+  - m_Id: 2515604321964032
+    m_Localized: "\xBFQu\xE9 te hace sentir conectado con la obra de arte?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2515632318943232
+    m_Localized: "\xBFQu\xE9 te hace sentir conectado con la obra de arte?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2515845737713664
+    m_Localized: "\xBFQu\xE9 te hace sentir conectado con la obra de arte?"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

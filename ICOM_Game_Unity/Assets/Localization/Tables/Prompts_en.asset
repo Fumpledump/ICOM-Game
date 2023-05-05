@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Prompts_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 466865c6ded88f54882b796843b5ef25, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 23265906688
+    m_Localized: 'What makes you feel connected to the art work? '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37048389632
+    m_Localized: 'Discuss what you discovered as you look at the object for a long
+      period of time? Are the discoveries different? '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43989962752
+    m_Localized: 'What emotions arise while looking at this object? What do you see
+      that makes you say this?
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6898510303232
+    m_Localized: Take turns listing off adjectives to describe this object.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6988562010112
+    m_Localized: What questions would you like to ask the artist about this work?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7097249009664
+    m_Localized: What do you notice about the materials that this object is made
+      with?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7162499796992
+    m_Localized: 'Discuss what stands out to you about the colors, patterns, or materials. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7230191669248
+    m_Localized: What about this object brings you joy?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7311422754816
+    m_Localized: What did you notice first about this object? Why do you think this
+      is?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7388451147776
+    m_Localized: ' Describe why this object brings you joy.'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
