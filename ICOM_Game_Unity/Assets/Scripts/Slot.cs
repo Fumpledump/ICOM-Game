@@ -7,6 +7,7 @@ public class Slot : MonoBehaviour
 {
     public InputHandler inputHandler;
     public List<GameObject> slots = new List<GameObject>();
+    public List<GameObject> positions = new List<GameObject>();
     public List<InputEntry> entries = new List<InputEntry>();
     [SerializeField] int currentSlot = 0;
 
@@ -17,17 +18,27 @@ public class Slot : MonoBehaviour
     }
     public void UpdateSlots()
     {
+        // Set Slot Positions
+        switch (slots.Count)
+        {
+            case 1: // In the Middle
+                slots[0].transform.position = positions[1].transform.position; // Set to 2nd Position
+                break;
+            case 2: // Close Togeter in Middle
+                slots[0].transform.position = positions[3].transform.position; // Set to 4th Position
+                slots[1].transform.position = positions[4].transform.position; // Set to 5th Position
+
+                break;
+            case 3: // Set Of 3
+                slots[0].transform.position = positions[0].transform.position;
+                slots[1].transform.position = positions[1].transform.position;
+                slots[2].transform.position = positions[2].transform.position;
+                break;
+        }
+
         for (int i = 0; i < slots.Count; i++)
         {
-            if (currentSlot == i)
-            {
-                slots[i].gameObject.SetActive(true);
-                UpdateSlotInfo(currentSlot, entries[currentSlot]);
-            }
-            else
-            {
-                slots[i].gameObject.SetActive(false);
-            }
+            UpdateSlotInfo(i, entries[i]);
         }
     }
 
