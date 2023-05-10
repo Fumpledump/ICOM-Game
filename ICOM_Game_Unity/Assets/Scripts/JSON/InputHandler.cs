@@ -161,15 +161,20 @@ public class InputHandler : MonoBehaviour
             GameObject newSlot = Instantiate(slotPrefab);
             newSlot.transform.SetParent(newSlotStack.transform);
 
+            LoadRawImage(entry, entry.Index);
+
             // Add to Slot Stack
             newSlotStack.GetComponent<Slot>().slots.Add(newSlot);
             newSlotStack.GetComponent<Slot>().entries.Add(entry);
+
         }
         else // Add to Slot Stack
         {
             // Create New Slot
             GameObject newSlot = Instantiate(slotPrefab);
             newSlot.transform.SetParent(collectionSlotsStacks[collectionSlotsStacks.Count - 1].transform);
+
+            LoadRawImage(entry, entry.Index);
 
             // Add to Slot Stack
             collectionSlotsStacks[collectionSlotsStacks.Count - 1].GetComponent<Slot>().slots.Add(newSlot);
@@ -178,8 +183,10 @@ public class InputHandler : MonoBehaviour
 
             // Bugfix Position
             newSlot.transform.localPosition = Vector3.zero;
+
         }
-        LoadRawImage(entry,entry.Index);
+        //LoadRawImage(entry,entry.Index);
+        //LoadSprite(newSlot.GetComponent<Image>(), entry.Index);
         totalEntries++;
     }
 

@@ -183,7 +183,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Yes
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bec7b3fa422843f429dc41caec405b2c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26d75d68c74fb61499a98785f8b9c706, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -848,7 +848,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Prompt holder
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bec7b3fa422843f429dc41caec405b2c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26d75d68c74fb61499a98785f8b9c706, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2255,7 +2255,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bec7b3fa422843f429dc41caec405b2c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26d75d68c74fb61499a98785f8b9c706, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3080,7 +3080,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: No
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bec7b3fa422843f429dc41caec405b2c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26d75d68c74fb61499a98785f8b9c706, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3217,7 +3217,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bec7b3fa422843f429dc41caec405b2c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26d75d68c74fb61499a98785f8b9c706, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3619,7 +3619,7 @@ MonoBehaviour:
     3, by creating a game that allows for one to be present in the moment and reflect
     on what brings them joy.\r\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bec7b3fa422843f429dc41caec405b2c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26d75d68c74fb61499a98785f8b9c706, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4155,7 +4155,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bec7b3fa422843f429dc41caec405b2c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26d75d68c74fb61499a98785f8b9c706, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4846,7 +4846,7 @@ MonoBehaviour:
 
     Are you sure to close?'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bec7b3fa422843f429dc41caec405b2c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26d75d68c74fb61499a98785f8b9c706, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5141,7 +5141,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bec7b3fa422843f429dc41caec405b2c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26d75d68c74fb61499a98785f8b9c706, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7001,7 +7001,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bec7b3fa422843f429dc41caec405b2c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26d75d68c74fb61499a98785f8b9c706, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7347,7 +7347,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: No
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bec7b3fa422843f429dc41caec405b2c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26d75d68c74fb61499a98785f8b9c706, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8175,7 +8175,7 @@ MonoBehaviour:
     Haley\nRuni Jiang\n\nMuseum Studies Staff Mentor\nJuliee Decker \n\nMuseum Studies
     Student\nSydney Arcuri\n\n( ICOM Members)\n(TBD)"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bec7b3fa422843f429dc41caec405b2c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26d75d68c74fb61499a98785f8b9c706, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8522,7 +8522,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bec7b3fa422843f429dc41caec405b2c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26d75d68c74fb61499a98785f8b9c706, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8809,7 +8809,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Are you sure to delete?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bec7b3fa422843f429dc41caec405b2c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26d75d68c74fb61499a98785f8b9c706, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -9413,7 +9413,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Loading...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bec7b3fa422843f429dc41caec405b2c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26d75d68c74fb61499a98785f8b9c706, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10111,7 +10111,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Yes
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bec7b3fa422843f429dc41caec405b2c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26d75d68c74fb61499a98785f8b9c706, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10610,7 +10610,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Lanaguague
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bec7b3fa422843f429dc41caec405b2c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26d75d68c74fb61499a98785f8b9c706, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11669,7 +11669,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: English
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bec7b3fa422843f429dc41caec405b2c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26d75d68c74fb61499a98785f8b9c706, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
