@@ -30,21 +30,29 @@ public static class IMG2Sprite
 
     public static Texture2D LoadTexture(string FilePath)
     {
-
-        // Load a PNG or JPG file from disk to a Texture2D
-        // Returns null if load fails
-
-        Texture2D Tex2D;
-        byte[] FileData;
-
-        if (File.Exists(FilePath))
+        // Create a Texture2D from the captured image
+        Texture2D texture = NativeCamera.LoadImageAtPath(FilePath, 512);
+        if (texture == null)
         {
-            FileData = File.ReadAllBytes(FilePath);
-            Tex2D = new Texture2D(2, 2);           // Create new "empty" texture
-            if (Tex2D.LoadImage(FileData))           // Load the imagedata into the texture (size is set automatically)
-                return Tex2D;                 // If data = readable -> return texture
+            return null;
         }
-        return null;                     // Return null if load failed
+        return texture;
+
+
+        //// Load a PNG or JPG file from disk to a Texture2D
+        //// Returns null if load fails
+
+        //Texture2D Tex2D;
+        //byte[] FileData;
+
+        //if (File.Exists(FilePath))
+        //{
+        //    FileData = File.ReadAllBytes(FilePath);
+        //    Tex2D = new Texture2D(2, 2);           // Create new "empty" texture
+        //    if (Tex2D.LoadImage(FileData))           // Load the imagedata into the texture (size is set automatically)
+        //        return Tex2D;                 // If data = readable -> return texture
+        //}
+        //return null;                     // Return null if load failed
     }
 
 }

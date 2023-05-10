@@ -162,7 +162,9 @@ public class InputHandler : MonoBehaviour
             newSlot.transform.SetParent(newSlotStack.transform);
 
             // Load the image into the list
-            LoadRawImage(entry, entry.Index);
+            //LoadRawImage(entry, entry.Index);
+            collectionSprite.Insert(entry.Index, collectImageHolder.sprite);
+
 
             // Add to Slot Stack
             newSlotStack.GetComponent<Slot>().slots.Add(newSlot);
@@ -176,7 +178,8 @@ public class InputHandler : MonoBehaviour
             newSlot.transform.SetParent(collectionSlotsStacks[collectionSlotsStacks.Count - 1].transform);
 
             // Load the image into the list
-            LoadRawImage(entry, entry.Index);
+            //LoadRawImage(entry, entry.Index);
+            collectionSprite.Insert(entry.Index, collectImageHolder.sprite);
 
             // Add to Slot Stack
             collectionSlotsStacks[collectionSlotsStacks.Count - 1].GetComponent<Slot>().slots.Add(newSlot);

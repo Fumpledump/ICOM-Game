@@ -63,8 +63,6 @@ public class Slot : MonoBehaviour
         Image collectionImage = slots[slotIndex].GetComponent<Image>();
         if (inputHandler != null)
         {
-            Debug.Log("Slot index" + entry.Index);
-            Debug.Log("collection image size: " + inputHandler.collectionSprite.Count);
             inputHandler.LoadSprite(collectionImage, entry.Index);
         }
 
