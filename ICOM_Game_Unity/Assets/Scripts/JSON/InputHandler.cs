@@ -31,7 +31,7 @@ public class InputHandler : MonoBehaviour
     bool imageChanged = false;
 
     public List<InputEntry> entries = new List<InputEntry>();
-    List<GameObject> collectionSlotsStacks = new List<GameObject>(); // grid slots, needs to be replaced by game object in the future
+    public List<GameObject> collectionSlotsStacks = new List<GameObject>(); // grid slots, needs to be replaced by game object in the future
     List<GameObject> collectionSlots = new List<GameObject>(); // grid slots, needs to be replaced by game object in the future
     List<GameObject> slotStacks = new List<GameObject>(); // grid slots, needs to be replaced by game object in the future
     public List<Sprite> collectionSprite = new List<Sprite>();
@@ -246,14 +246,15 @@ public class InputHandler : MonoBehaviour
             entries[curCollectionIndex].Favorited = curFavorited;
             collectionSprite.RemoveAt(curCollectionIndex);
             collectionSprite.Insert(curCollectionIndex, collectImageHolder.sprite);
-            //LoadSprite(collectImageHolder, curCollectionIndex);
             collectionSlotsStacks[curCollectionIndex / 3].GetComponent<Slot>().UpdateSlots();
         }
         // New item is added
         else
         {
             entries.Add(new InputEntry(entries.Count, titleInput.text, curImageFilePath, recorder.fileName, audioPlayer.recordedClipLength, noteInput.text, curFavorited));
+            Debug.Log(curCollectionIndex);
             UpdateInventory(entries[entries.Count - 1]);
+            collectionSlotsStacks[collectionSlotsStacks.Count - 1].GetComponent<Slot>().UpdateSlots();
         }
 
         FileHandler.SaveToJSON<InputEntry>(entries, filename);
