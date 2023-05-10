@@ -161,6 +161,7 @@ public class InputHandler : MonoBehaviour
             GameObject newSlot = Instantiate(slotPrefab);
             newSlot.transform.SetParent(newSlotStack.transform);
 
+            // Load the image into the list
             LoadRawImage(entry, entry.Index);
 
             // Add to Slot Stack
@@ -174,6 +175,7 @@ public class InputHandler : MonoBehaviour
             GameObject newSlot = Instantiate(slotPrefab);
             newSlot.transform.SetParent(collectionSlotsStacks[collectionSlotsStacks.Count - 1].transform);
 
+            // Load the image into the list
             LoadRawImage(entry, entry.Index);
 
             // Add to Slot Stack
