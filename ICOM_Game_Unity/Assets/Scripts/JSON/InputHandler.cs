@@ -295,6 +295,12 @@ public class InputHandler : MonoBehaviour
 
         Destroy(collectionSlots[curCollectionIndex]);
         collectionSlots.RemoveAt(curCollectionIndex);
+
+        // Update Slots
+        for (int i = 0; i < collectionSlotsStacks.Count; i++)
+        {
+            collectionSlotsStacks[0].GetComponent<Slot>().UpdateSlots();
+        }
     }
 
     /// <summary>
