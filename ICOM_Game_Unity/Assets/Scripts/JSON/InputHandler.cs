@@ -28,6 +28,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField] TMP_InputField noteInput;
     [SerializeField] string filename;
     [SerializeField] bool curFavorited;
+    bool imageChanged = false;
 
     public List<InputEntry> entries = new List<InputEntry>();
     List<GameObject> collectionSlotsStacks = new List<GameObject>(); // grid slots, needs to be replaced by game object in the future
@@ -117,6 +118,7 @@ public class InputHandler : MonoBehaviour
     {
         Debug.Log("Loading Slot: " + curCollectionIndex);
 
+        imageChanged = false;
         curCollectionIndex = collection.Index;
         curImageFilePath = collection.ImageFilePath;
         curRecordingFileName = collection.RecordingFileName;
@@ -223,6 +225,16 @@ public class InputHandler : MonoBehaviour
     {
         //entries.Add(new InputEntry(entries.Count, titleInput.text, imageFilePath, string RecordingFileName, noteInput));
 
+       
+        if (imageChanged)
+        {
+            if (File.Exists(curImageFilePath))
+            {
+                File.Delete(curImageFilePath);
+            }
+            WriteImageIntoFolder();
+        }
+
         // Old collection is modified
         if (curCollectionIndex < entries.Count && curCollectionIndex >= 0)
         {
@@ -259,6 +271,14 @@ public class InputHandler : MonoBehaviour
         if (curCollectionIndex >= entries.Count)
         {
             return;
+        }                                                                                                                                                                                                                                                                                                                                 
+
+        // Delete the image file in the folder
+        string filepath = entries[curCollectionIndex].ImageFilePath;
+        if (File.Exists(filepath))
+        {
+            Debug.Log("Try to delete the file in the foldr");
+            File.Delete(filepath);
         }
 
         // Remove the entries and collection in file system
@@ -281,11 +301,12 @@ public class InputHandler : MonoBehaviour
     /// </summary>
     public void CheckCloseUnsaved()
     {
+
         // New item
         if (curCollectionIndex == entries.Count)
         {
             Debug.Log("New things " + curCollectionIndex);
-            if (titleInput.text != "" || curImageFilePath != "" || noteInput.text != "")
+            if (titleInput.text != "" || imageChanged || noteInput.text != "")
             {
                 unsavedConfirmationPage.SetActive(true);
             }
@@ -300,7 +321,7 @@ public class InputHandler : MonoBehaviour
         {
             Debug.Log("Old things " + curCollectionIndex);
             if (titleInput.text != entries[curCollectionIndex].Title ||
-                curImageFilePath != entries[curCollectionIndex].ImageFilePath ||
+                imageChanged ||
                 noteInput.text != entries[curCollectionIndex].Notes ||
                 curFavorited != entries[curCollectionIndex].Favorited)
             {
@@ -351,6 +372,20 @@ public class InputHandler : MonoBehaviour
     }
 
     /// <summary>
+    /// This method will be called when the player load image but don't want to save it
+    /// Still need to consider when user load multiple image but did not save
+    /// </summary>
+    public void DeleteUnsavedImage() 
+    {
+        //Debug.Log("current collection file path:" + entries[curCollectionIndex].ImageFilePath);
+        Debug.Log("Current image file path:" + curImageFilePath);
+        if(File.Exists(curImageFilePath))
+        {
+            File.Delete(curImageFilePath);
+        }
+    }
+
+    /// <summary>
     /// Load Sprite for item
     /// </summary>
     /// <param name="holder">where to load</param>
@@ -398,10 +433,9 @@ public class InputHandler : MonoBehaviour
 
                 Sprite s = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero, 1f);
                 collectImageHolder.sprite = s;
-                string writePath = Application.persistentDataPath + $"/{FileHandler.GenerateUniqueId()}.png";
-                curImageFilePath = writePath;
-                byte[] byteArray = File.ReadAllBytes(imagePath);
-                File.WriteAllBytes(writePath, byteArray);
+
+                imageChanged = true;
+
             }
         }, maxSize);
 
@@ -411,6 +445,7 @@ public class InputHandler : MonoBehaviour
     public void OnPickTest()
     {
         PickImage(512);
+
     }
 
     private void PickImage(int maxSize)
@@ -431,13 +466,19 @@ public class InputHandler : MonoBehaviour
 
                 Sprite s = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero, 1f);
                 collectImageHolder.sprite = s;
-                string writePath = Application.persistentDataPath + $"/{FileHandler.GenerateUniqueId()}.png";
-                curImageFilePath = writePath;
-                byte[] byteArray = File.ReadAllBytes(imagePath);
-                File.WriteAllBytes(writePath, byteArray);
+
+                imageChanged = true;
             }
         });
 
         Debug.Log("Permission result: " + permission);
+    }
+
+    private void WriteImageIntoFolder()
+    {
+        string writePath = Application.persistentDataPath + $"/{FileHandler.GenerateUniqueId()}.png";
+        curImageFilePath = writePath;
+        byte[] byteArray = File.ReadAllBytes(imagePath);
+        File.WriteAllBytes(writePath, byteArray);
     }
 }
