@@ -49,17 +49,55 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2515604321964032
-    m_Localized: 'What makes you feel connected to the art work? '
+    m_Localized: "The theme for the 2023 International Museum Day edition, which
+      takes place on <b>May 18th</b>, will focus on the theme of <b>\xABMuseums,
+      Sustainability and Well-being\xBB</b> This annual event celebrates museums
+      and their importance in society and encourages museums to promote cultural
+      exchange, mutual understanding, and sustainable development.\r\n\r\nEach year
+      since 2020, the International Museum Day Supports a set of Goals from the <b>Sustainable
+      Development Goals</b> of the United Nations.\r\n \r\nIn <b>2023</b>, we will
+      focus on:\r\n"
     m_Metadata:
       m_Items: []
   - m_Id: 2515632318943232
-    m_Localized: 'Discuss what you discovered as you look at the object for a long
-      period of time? Are the discoveries different? '
+    m_Localized: '<b>Goal 3 Global Health and Well-being:</b> Ensure healthy lives
+      and promote well-being for all at all ages, in particular concerning mental
+      health and social isolation.
+
+
+
+      <b>Goal 13 Climate Action:</b> Take urgent
+      action to combat climate change and its impacts, adopting low-carbon practices
+      in the Global North and mitigation strategies in the Global South.
+
+
+
+      <b>Goal
+      15 Life on Land:</b> Protect, restore, and promote sustainable use of terrestrial
+      ecosystems, amplifying the voices of indigenous leaders and raising awareness
+      on the loss of biodiversity.
+
+
+
+'
     m_Metadata:
       m_Items: []
   - m_Id: 2515845737713664
-    m_Localized: What emotions arise while looking at this object? What do you see
-      that makes you say this?
+    m_Localized: 'My Mini Museum primarily focuses on <b>Goal 3</b>, by creating
+      a game that allows for one to <b>be present</b> in the moment and reflect on
+      what brings them joy.
+
+
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4329517330042880
+    m_Localized: About
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4329574225776640
+    m_Localized: Credit
     m_Metadata:
       m_Items: []
   references:

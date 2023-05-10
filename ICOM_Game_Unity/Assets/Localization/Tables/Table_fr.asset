@@ -54,18 +54,36 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2515604321964032
-    m_Localized: "Qu'est-ce qui vous fait vous sentir connect\xE9 \xE0 l'\u0153uvre
-      d'art ?"
+    m_Localized: "Chaque ann\xE9e depuis 2020, la Journ\xE9e internationale des mus\xE9es
+      soutient un ensemble d\u2019objectifs issus des <b>Objectifs de d\xE9veloppement
+      durable</b> des Nations unies.\r\n\nEn <b>2023</b>, nous nous concentrerons
+      sur :\r\n"
     m_Metadata:
       m_Items: []
   - m_Id: 2515632318943232
-    m_Localized: "Qu'est-ce qui vous fait vous sentir connect\xE9 \xE0 l'\u0153uvre
-      d'art ?"
+    m_Localized: "<b>Objetivo 3 Salud y bienestar:</b> Garantizar una vida sana y
+      promover el bienestar para todos en todas las edades, en particular en el \xE1mbito
+      de la salud mental y el aislamiento social.\r\n\n<b>Objetivo 13 Acci\xF3n por
+      el clima:</b> Adoptar medidas urgentes para combatir el cambio clim\xE1tico
+      y sus efectos, adoptando pr\xE1cticas bajas en carbono en el Norte Global y
+      estrategias de mitigaci\xF3n en el Sur Global.\r\n\n<b>Objetivo 15 Vida de
+      ecosistemas terrestres:</b> Gestionar sosteniblemente los bosques, luchar contra
+      la desertificaci\xF3n, detener e invertir la degradaci\xF3n de las tierras,
+      detener la p\xE9rdida de biodiversidad.\r\n"
     m_Metadata:
       m_Items: []
   - m_Id: 2515845737713664
-    m_Localized: "Qu'est-ce qui vous fait vous sentir connect\xE9 \xE0 l'\u0153uvre
-      d'art ?"
+    m_Localized: "Mon Mini Mus\xE9e se concentre principalement sur <b>l'objectif
+      3</b>, en cr\xE9ant un jeu qui permet \xE0 chacun <b>d'\xEAtre pr\xE9sent</b>
+      dans l'instant et de r\xE9fl\xE9chir \xE0 ce qui lui apporte de la joie."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4329517330042880
+    m_Localized: "\xC0 propos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4329574225776640
+    m_Localized: "Fran\xE7aise (FR)"
     m_Metadata:
       m_Items: []
   references:

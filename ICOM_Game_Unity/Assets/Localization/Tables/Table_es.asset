@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: es
   m_SharedData: {fileID: 11400000, guid: 5030f014472da434d81eec00fd21d02a, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 6608336699522547714
   m_TableData:
   - m_Id: 20543803392
     m_Localized: "\n\tEl D\xEDa Internacional de los Museos 2023 se centra en la
@@ -53,17 +54,43 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2515604321964032
-    m_Localized: "\xBFQu\xE9 te hace sentir conectado con la obra de arte?"
+    m_Localized: "El tema para la edici\xF3n de 2023 del D\xEDa Internacional de
+      los Museos, <b>el 18 de mayo</b>, se centrar\xE1 en <b>\xABMuseos, sostenibilidad
+      y bienestar\xBB</b>. Este evento celebra anualmente los museos y su importancia
+      en la sociedad y anima a los museos a promover el intercambio cultural, el
+      mutuo entendimiento y el desarrollo sostenible\r\n\r\nCada a\xF1o desde 2020,
+      el D\xEDa Internacional de los Museos apoya un conjunto de Objetivos de los
+      <b>Objetivos de Desarrollo Sostenible</b> de las Naciones Unidas.\r\n\nEn <b>2023</b>,
+      nos centraremos en:\r\n"
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 6608336699522547714
   - m_Id: 2515632318943232
-    m_Localized: "\xBFQu\xE9 te hace sentir conectado con la obra de arte?"
+    m_Localized: "<b>Objetivo 3 Salud y bienestar:</b> Garantizar una vida sana y
+      promover el bienestar para todos en todas las edades, en particular en el \xE1mbito
+      de la salud mental y el aislamiento social.\n\r\n<b>Objetivo 13 Acci\xF3n por
+      el clima:</b> Adoptar medidas urgentes para combatir el cambio clim\xE1tico
+      y sus efectos, adoptando pr\xE1cticas bajas en carbono en el Norte Global y
+      estrategias de mitigaci\xF3n en el Sur Global.\r\n\n<b>Objetivo 15 Vida de
+      ecosistemas terrestres:</b> Gestionar sosteniblemente los bosques, luchar contra
+      la desertificaci\xF3n, detener e invertir la degradaci\xF3n de las tierras,
+      detener la p\xE9rdida de biodiversidad.\r\n"
     m_Metadata:
       m_Items: []
   - m_Id: 2515845737713664
-    m_Localized: "\xBFQu\xE9 te hace sentir conectado con la obra de arte?"
+    m_Localized: "Mi Mini Museo se centra principalmente en el <b>Objetivo 3</b>,
+      mediante la creaci\xF3n de un juego que permite <b>estar presente</b> en el
+      momento y reflexionar sobre lo que les da alegr\xEDa."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4329517330042880
+    m_Localized: Acerca de
     m_Metadata:
       m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 6608336699522547714
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 009001c6edef0800
