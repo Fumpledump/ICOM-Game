@@ -49,6 +49,7 @@ public class InputHandler : MonoBehaviour
     public Texture2D texture;
     public Image collectImageHolder;
     public GameObject favaritedButton;
+    public GameObject languagePage;
     [SerializeField] string imagePath;
 
     void Awake()
@@ -60,6 +61,11 @@ public class InputHandler : MonoBehaviour
         else
         {
             Destroy(instance);
+        }
+
+        if(!File.Exists(filename))
+        {
+            languagePage.SetActive(true);
         }
     }
 

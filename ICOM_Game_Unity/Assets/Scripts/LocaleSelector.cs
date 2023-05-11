@@ -7,21 +7,25 @@ using UnityEngine.UI;
 public class LocaleSelector : MonoBehaviour
 {
     private bool active = false;
+    public bool firstTime = false;
     [SerializeField] private List<Button> lanaguageButtons;
 
     private void Start()
     {
         int ID = PlayerPrefs.GetInt("LocaleKey", 0);
         ChangeLocale(ID);
-        for(int i = 0; i<lanaguageButtons.Count; i++)
+        if(!firstTime)
         {
-            if (i != ID)
+            for (int i = 0; i < lanaguageButtons.Count; i++)
             {
-                lanaguageButtons[i].interactable = true;
-            }
-            else
-            {
-                lanaguageButtons[i].interactable = false;
+                if (i != ID)
+                {
+                    lanaguageButtons[i].interactable = true;
+                }
+                else
+                {
+                    lanaguageButtons[i].interactable = false;
+                }
             }
         }
     }
