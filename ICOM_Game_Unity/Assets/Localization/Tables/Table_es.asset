@@ -46,11 +46,10 @@ MonoBehaviour:
     m_Localized: "Este juego fue posible gracias a una colaboraci\xF3n entre el Consejo
       Internacional de Museos y los estudiantes del Instituto de Tecnolog\xEDa de
       Rochester en los programas de Dise\xF1o y Desarrollo de Juegos y Estudios de
-      Museos.\r\n\r\nMentor del personal de dise\xF1o de juegos   \nElouise \u201CWeez\u201D
-      Oyzon                                              \n\r\nEstudiantes de dise\xF1o
-      de juegos                   \r\nJohn Haley                                                 
-      \nRuni Jiang \r\n\nMentora de Personal de Estudios de Museo\r \nJuliee Decker
-      \r\n\nMuseum Studies Student \nSydney Arcuri \r\n"
+      Museos.\r\n\r\n<b>\rDesarrollo de dise\xF1o</b>                            
+      \r\nElouise Oyzon, Directora\r\nJohn Haley, Desarrollador\r\nRuni Jiang, Desarrolladora\r\n\r\n<b>Desarrollo
+      de contenido de estudios muse\xEDsticost</b>\r\nJuilee Decker, Dirigir\r\nSydney
+      Arcuri         \r\n"
     m_Metadata:
       m_Items: []
   - m_Id: 2515604321964032
@@ -113,6 +112,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 4509485536219136
     m_Localized: "\xBFEst\xE1 bien borrar esto?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4766159085867008
+    m_Localized: Cargando...
     m_Metadata:
       m_Items: []
   references:

@@ -24,13 +24,14 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 37048389632
-    m_Localized: "Qu'est-ce qui vous fait vous sentir connect\xE9 \xE0 l'\u0153uvre
-      d'art ?\r\n"
+    m_Localized: "Discutez de ce que vous avez d\xE9couvert en regardant l'objet
+      pendant une longue p\xE9riode. Les d\xE9couvertes sont-elles diff\xE9rentes
+      ?\r\n"
     m_Metadata:
       m_Items: []
   - m_Id: 43989962752
-    m_Localized: "Qu'est-ce qui vous fait vous sentir connect\xE9 \xE0 l'\u0153uvre
-      d'art ?\r\n"
+    m_Localized: "Quelles \xE9motions surgissent en regardant cet objet ? Que voyez-vous
+      qui vous fait ressentir cela ?"
     m_Metadata:
       m_Items: []
   - m_Id: 6898510303232

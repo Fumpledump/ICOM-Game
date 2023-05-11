@@ -63,10 +63,19 @@ public class InputHandler : MonoBehaviour
             Destroy(instance);
         }
 
-        if(!File.Exists(filename))
+        if (!File.Exists(Application.persistentDataPath + $"/{filename}"))
         {
             languagePage.SetActive(true);
         }
+
+        //if(!PlayerPrefs.HasKey("NotFirstTimeOpening"))
+        //{
+        //    languagePage.SetActive(true);
+        //}
+        //else
+        //{
+        //    PlayerPrefs.SetInt("NotFirstTimeOpening", 0);
+        //}
     }
 
     private void Start()
@@ -83,37 +92,41 @@ public class InputHandler : MonoBehaviour
         {
             InputEntry entry = entries[i];
             LoadRawImage(entry, i);
-            // set up the grid
-            if (i % 3 == 0 || i == 0) // Create New Slot Stack
-            {
-                GameObject newSlotStack = Instantiate(slotStackPrefab);
-                collectionSlotsStacks.Add(newSlotStack);
-                newSlotStack.transform.SetParent(grid.transform);
-
-                // Create New Slot
-                GameObject newSlot = Instantiate(slotPrefab);
-                newSlot.transform.SetParent(newSlotStack.transform);
-
-                // Add to Slot Stack
-                newSlotStack.GetComponent<Slot>().slots.Add(newSlot);
-                newSlotStack.GetComponent<Slot>().entries.Add(entry);
-                newSlotStack.GetComponent<Slot>().UpdateSlots();
-            }
-            else // Add to Slot Stack
-            {
-                // Create New Slot
-                GameObject newSlot = Instantiate(slotPrefab);
-                newSlot.transform.SetParent(collectionSlotsStacks[collectionSlotsStacks.Count - 1].transform);
-
-                // Add to Slot Stack
-                collectionSlotsStacks[collectionSlotsStacks.Count - 1].GetComponent<Slot>().slots.Add(newSlot);
-                collectionSlotsStacks[collectionSlotsStacks.Count - 1].GetComponent<Slot>().entries.Add(entry);
-                collectionSlotsStacks[collectionSlotsStacks.Count - 1].GetComponent<Slot>().UpdateSlots();
-            }
-      
+            UpdateSlotStack(i, entry);
         }
 
         totalEntries = entries.Count;
+    }
+
+
+    public void UpdateSlotStack(int index, InputEntry entry)
+    {
+        if (index % 3 == 0 || index == 0) // Create New Slot Stack
+        {
+            GameObject newSlotStack = Instantiate(slotStackPrefab);
+            collectionSlotsStacks.Add(newSlotStack);
+            newSlotStack.transform.SetParent(grid.transform);
+
+            // Create New Slot
+            GameObject newSlot = Instantiate(slotPrefab);
+            newSlot.transform.SetParent(newSlotStack.transform);
+
+            // Add to Slot Stack
+            newSlotStack.GetComponent<Slot>().slots.Add(newSlot);
+            newSlotStack.GetComponent<Slot>().entries.Add(entry);
+            newSlotStack.GetComponent<Slot>().UpdateSlots();
+        }
+        else // Add to Slot Stack
+        {
+            // Create New Slot
+            GameObject newSlot = Instantiate(slotPrefab);
+            newSlot.transform.SetParent(collectionSlotsStacks[collectionSlotsStacks.Count - 1].transform);
+
+            // Add to Slot Stack
+            collectionSlotsStacks[collectionSlotsStacks.Count - 1].GetComponent<Slot>().slots.Add(newSlot);
+            collectionSlotsStacks[collectionSlotsStacks.Count - 1].GetComponent<Slot>().entries.Add(entry);
+            collectionSlotsStacks[collectionSlotsStacks.Count - 1].GetComponent<Slot>().UpdateSlots();
+        }
     }
 
     /// <summary>
@@ -159,6 +172,19 @@ public class InputHandler : MonoBehaviour
     /// <param name="entry">added item</param>
     public void UpdateInventory(InputEntry entry)
     {
+        //collectionSlotsStacks.Clear();
+        //Transform gridTrans = grid.GetComponent<Transform>();
+        //foreach (Transform child in gridTrans)
+        //{
+        //    GameObject.Destroy(child.gameObject);
+        //}
+        //totalEntries = entries.Count;
+        //for (int i = 0; i < entries.Count; i++)
+        //{
+        //    UpdateSlotStack(i, entries[i]);
+        //}
+
+
         if (totalEntries % 3 == 0) // Create New Slot Stack
         {
             GameObject newSlotStack = Instantiate(slotStackPrefab);
@@ -304,9 +330,20 @@ public class InputHandler : MonoBehaviour
         collectionSlotsStacks[curCollectionIndex / 3].GetComponent<Slot>().DeleteSlot(curCollectionIndex % 3);
 
         // Update Slots
-        for (int i = 0; i < collectionSlotsStacks.Count; i++)
+        //for (int i = 0; i < collectionSlotsStacks.Count; i++)
+        //{
+        //    collectionSlotsStacks[0].GetComponent<Slot>().UpdateSlots();
+        //}
+        collectionSlotsStacks.Clear();
+        Transform gridTrans = grid.GetComponent<Transform>();
+        foreach (Transform child in gridTrans)
         {
-            collectionSlotsStacks[0].GetComponent<Slot>().UpdateSlots();
+            GameObject.Destroy(child.gameObject);
+        }
+        totalEntries = entries.Count;
+        for (int i = 0; i < entries.Count; i++)
+        {
+            UpdateSlotStack(i, entries[i]);
         }
     }
 

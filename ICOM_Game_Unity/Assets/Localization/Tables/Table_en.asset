@@ -42,10 +42,10 @@ MonoBehaviour:
   - m_Id: 915675385856
     m_Localized: "This game was made possible through a collaboration between the
       International Council of Museum and the Rochester Institute of Technology students
-      in the Game Design and Development and Museum Studies programs. \r\n\r\n\n\n\nGame
-      Design Staff Mentor \n Elouise \u201CWeez\u201D Oyzon \n\nGame Design Students\nJohn
-      Haley\nRuni Jiang\n\nMuseum Studies Staff Mentor\nJuliee Decker \n\nMuseum
-      Studies Student\nSydney Arcuri\n\n( ICOM Members)\n(TBD)"
+      in the Game Design and Development and Museum Studies programs. \r\n\n<b>Design
+      & Development</b>                             \r\nElouise Oyzon, Director\r\nJohn
+      Haley, Developer\r\nRuni Jiang, Developer\r\n\r\n<b>Museum Studies Content
+      Development</b>\r\nJuilee Decker, Lead\r\nSydney Arcuri         \r\n"
     m_Metadata:
       m_Items: []
   - m_Id: 2515604321964032
@@ -122,6 +122,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 4509485536219136
     m_Localized: Is this okay to delete?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4766159085867008
+    m_Localized: Loading...
     m_Metadata:
       m_Items: []
   references:

@@ -46,11 +46,10 @@ MonoBehaviour:
     m_Localized: "Ce jeu a \xE9t\xE9 rendu possible gr\xE2ce \xE0 une collaboration
       entre le Conseil International des Mus\xE9es et l'Institut Rochester des \xE9tudiants
       en Technologie dans les programmes de conception et de d\xE9veloppement de
-      jeux et d'\xE9tudes mus\xE9ales.\r\n\r\nMentor du personnel de conception de
-      jeux            \nElouise \u201CWeez\u201D Oyzon                                                     
-      \r\n\r\n\xC9tudiants en conception de jeux           \nJohn Haley                                             
-      \r\nRuni Jiang\r\n\nMentor du personnel d'\xE9tudes mus\xE9ales\r\nJuliee Decker\n\n\xC9tudiant
-      en \xE9tudes mus\xE9ales\r\nSydney Arcuri "
+      jeux et d'\xE9tudes mus\xE9ales.\r\n\r\n<b>Conception & D\xE9veloppement</b>\nElouise
+      Oyzon, Directrice\r\nJohn Haley, D\xE9veloppeur\r\nRuni Jiang, D\xE9veloppeuse\r\n\n<b>D\xE9veloppement
+      du contenu des \xE9tudes mus\xE9ales</b>\r\nJuilee Decker, Mener\r\nSydney
+      Arcuri     "
     m_Metadata:
       m_Items: []
   - m_Id: 2515604321964032
@@ -114,6 +113,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 4509485536219136
     m_Localized: Est-ce correct de supprimer ?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4766159085867008
+    m_Localized: Chargement...
     m_Metadata:
       m_Items: []
   references:
