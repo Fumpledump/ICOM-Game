@@ -16,16 +16,15 @@ public class PromptGeneration : MonoBehaviour
     {
     }
 
-    public void GenerateRandomString()
+    public void GeneratePrompt(int index)
     {
-
-     
+        localizedStringEvent.SetEntry(index.ToString());
     }
 
-    private void OnEnable()
-    {
+    //private void OnEnable()
+    //{
    
-        int randomIndex = UnityEngine.Random.Range(1, table.GetTable().SharedData.Entries.Count + 1);
-        localizedStringEvent.SetEntry(randomIndex.ToString());
-    }
+    //    int randomIndex = UnityEngine.Random.Range(1, table.GetTable().SharedData.Entries.Count + 1);
+    //    localizedStringEvent.SetEntry(randomIndex.ToString());
+    //}
 }
