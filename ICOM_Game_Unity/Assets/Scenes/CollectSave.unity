@@ -2784,7 +2784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &313002085
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5361,7 +5361,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:5030f014472da434d81eec00fd21d02a
     m_TableEntryReference:
-      m_KeyId: 915675385856
+      m_KeyId: 4329574225776640
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
