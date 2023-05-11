@@ -42,6 +42,7 @@ public class InputHandler : MonoBehaviour
     // Canvas Part
     public GameObject collectionPage;
     public GameObject inventoryPage;
+    public ScrollRect scrollView;
     public GameObject unsavedConfirmationPage;
     public GameObject deleteConfirmPage;
     public GameObject grid;
@@ -288,6 +289,14 @@ public class InputHandler : MonoBehaviour
             UpdateInventory(entries[entries.Count - 1]);
             collectionSlotsStacks[collectionSlotsStacks.Count - 1].GetComponent<Slot>().UpdateSlots();
         }
+
+        Debug.Log("Scroll View Position Before:" + scrollView.verticalNormalizedPosition);
+
+        // Move Inventory Rows Down
+        scrollView.verticalNormalizedPosition = 1.5f;
+
+        Debug.Log("Scroll View Position After:" + scrollView.verticalNormalizedPosition);
+
 
         FileHandler.SaveToJSON<InputEntry>(entries, filename);
     }

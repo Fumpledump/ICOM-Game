@@ -1724,7 +1724,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 25.56903, y: -18.001465}
+  m_AnchoredPosition: {x: 25.569092, y: -18.001465}
   m_SizeDelta: {x: -262.60025, y: -631.3095}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &218959084
@@ -7530,6 +7530,7 @@ MonoBehaviour:
   totalEntries: 0
   collectionPage: {fileID: 184425381}
   inventoryPage: {fileID: 316055466}
+  scrollView: {fileID: 309353974}
   unsavedConfirmationPage: {fileID: 381360246}
   deleteConfirmPage: {fileID: 2058152224}
   grid: {fileID: 820449949}
@@ -11022,7 +11023,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00018310547, y: 0}
+  m_AnchoredPosition: {x: -0.00024414062, y: 0}
   m_SizeDelta: {x: -0.00024414062, y: 0.00048828125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1263839315
@@ -14310,7 +14311,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00018310547, y: 0}
+  m_AnchoredPosition: {x: -0.00024414062, y: 0}
   m_SizeDelta: {x: -1340.0002, y: -2459.9995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1846291771
