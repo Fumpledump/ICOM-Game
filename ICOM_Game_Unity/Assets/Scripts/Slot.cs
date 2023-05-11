@@ -21,6 +21,10 @@ public class Slot : MonoBehaviour
         // Set Slot Positions
         switch (slots.Count)
         {
+            case 0:
+                inputHandler.collectionSlotsStacks.RemoveAt(inputHandler.curCollectionIndex/3);
+                Destroy(gameObject); 
+                break;
             case 1: // In the Middle
                 slots[0].transform.position = positions[1].transform.position; // Set to 2nd Position
 
@@ -115,5 +119,13 @@ public class Slot : MonoBehaviour
         {
             positions[i].SetActive(false);
         }
+    }
+
+    public void DeleteSlot(int slotIndex)
+    {
+        Debug.Log("Try to delte slot in slotstack at: " + slotIndex);
+        Destroy(slots[slotIndex].gameObject);
+        slots.RemoveAt(slotIndex);
+        UpdateSlots();
     }
 }

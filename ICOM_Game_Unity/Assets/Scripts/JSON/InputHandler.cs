@@ -32,7 +32,7 @@ public class InputHandler : MonoBehaviour
 
     public List<InputEntry> entries = new List<InputEntry>();
     public List<GameObject> collectionSlotsStacks = new List<GameObject>(); // grid slots, needs to be replaced by game object in the future
-    List<GameObject> collectionSlots = new List<GameObject>(); // grid slots, needs to be replaced by game object in the future
+    public List<GameObject> collectionSlots = new List<GameObject>(); // grid slots, needs to be replaced by game object in the future
     List<GameObject> slotStacks = new List<GameObject>(); // grid slots, needs to be replaced by game object in the future
     public List<Sprite> collectionSprite = new List<Sprite>();
     public int curCollectionIndex = -1;
@@ -293,8 +293,9 @@ public class InputHandler : MonoBehaviour
         }
         FileHandler.SaveToJSON<InputEntry>(entries, filename);
 
-        Destroy(collectionSlots[curCollectionIndex]);
-        collectionSlots.RemoveAt(curCollectionIndex);
+        //Destroy(collectionSlotsStacks[curCollectionIndex / 3].GetComponent<Slot>().slots[curCollectionIndex % 3]);
+        //collectionSlotsStacks[curCollectionIndex / 3].GetComponent<Slot>().slots.RemoveAt(curCollectionIndex % 3);
+        collectionSlotsStacks[curCollectionIndex / 3].GetComponent<Slot>().DeleteSlot(curCollectionIndex % 3);
 
         // Update Slots
         for (int i = 0; i < collectionSlotsStacks.Count; i++)
