@@ -6865,10 +6865,10 @@ MonoBehaviour:
     m_Top: 220
     m_Bottom: 430
   m_ChildAlignment: 1
-  m_StartCorner: 0
+  m_StartCorner: 2
   m_StartAxis: 0
   m_CellSize: {x: 200, y: 200}
-  m_Spacing: {x: 100, y: 500}
+  m_Spacing: {x: 100, y: 560}
   m_Constraint: 1
   m_ConstraintCount: 1
 --- !u!114 &820449952
