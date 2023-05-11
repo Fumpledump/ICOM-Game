@@ -97,7 +97,31 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4329574225776640
-    m_Localized: Credit
+    m_Localized: Credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4508126548168704
+    m_Localized: Lanaguage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4508425711095808
+    m_Localized: 'Collection '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4508725452836864
+    m_Localized: "Unsaved Change: \nAre you Sure to Close?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4508833749766144
+    m_Localized: 'Yes '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4508926162866176
+    m_Localized: 'No '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4509485536219136
+    m_Localized: Is this okay to delete?
     m_Metadata:
       m_Items: []
   references:

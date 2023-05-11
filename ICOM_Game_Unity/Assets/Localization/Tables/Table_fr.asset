@@ -88,7 +88,32 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4329574225776640
-    m_Localized: "Fran\xE7aise (FR)"
+    m_Localized: "Cr\xE9dits "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4508126548168704
+    m_Localized: 'Langue '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4508425711095808
+    m_Localized: ' La collecte'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4508725452836864
+    m_Localized: "Modification non enregistr\xE9e : \n\xCAtes-vous s\xFBr de vouloir
+      fermer ?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4508833749766144
+    m_Localized: 'Oui '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4508926162866176
+    m_Localized: 'Non '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4509485536219136
+    m_Localized: Est-ce correct de supprimer ?
     m_Metadata:
       m_Items: []
   references:

@@ -43,6 +43,30 @@ MonoBehaviour:
     m_Key: Word_Credit
     m_Metadata:
       m_Items: []
+  - m_Id: 4508126548168704
+    m_Key: Word_Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4508425711095808
+    m_Key: Word_Collection
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4508725452836864
+    m_Key: UnsavedChange
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4508833749766144
+    m_Key: Word_Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4508926162866176
+    m_Key: Word_No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4509485536219136
+    m_Key: IsOkayToDelete
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
