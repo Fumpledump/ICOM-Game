@@ -87,6 +87,34 @@ MonoBehaviour:
     m_Localized: Acerca de
     m_Metadata:
       m_Items: []
+  - m_Id: 4508126548168704
+    m_Localized: Idioma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4329574225776640
+    m_Localized: "Cr\xE9ditos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4508425711095808
+    m_Localized: "Recopilaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4508725452836864
+    m_Localized: "Cambio no guardado:\n \xBFest\xE1 seguro de cerrar?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4508833749766144
+    m_Localized: "S\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4508926162866176
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4509485536219136
+    m_Localized: "\xBFEst\xE1 bien borrar esto?"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

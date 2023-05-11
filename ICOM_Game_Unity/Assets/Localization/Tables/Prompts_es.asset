@@ -23,11 +23,13 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 37048389632
-    m_Localized: " \xBFQu\xE9 te hace sentir conectado con la obra de arte?\r\n"
+    m_Localized: "Discute lo que has descubierto al observar el objeto durante un
+      largo periodo de tiempo. \xBFHay cambios en los descubrimientos?\n"
     m_Metadata:
       m_Items: []
   - m_Id: 43989962752
-    m_Localized: "\xBFQu\xE9 te hace sentir conectado con la obra de arte?\r"
+    m_Localized: "\xBFQu\xE9 emociones surgen al mirar este objeto? \xBFQu\xE9 ves
+      que te hace sentir esto?"
     m_Metadata:
       m_Items: []
   - m_Id: 6898510303232
