@@ -109,7 +109,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4508725452836864
-    m_Localized: "Unsaved Change: \nAre you Sure to Close?"
+    m_Localized: "Unsaved Change \nAre you Sure to Close?"
     m_Metadata:
       m_Items: []
   - m_Id: 4508833749766144

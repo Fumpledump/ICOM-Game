@@ -93,6 +93,7 @@ public class InputHandler : MonoBehaviour
         {
             InputEntry entry = entries[i];
             LoadRawImage(entry, i);
+            //StartCoroutine(LoadRawImageAsync(entry, i));
             UpdateSlotStack(i, entry);
         }
 
@@ -469,7 +470,38 @@ public class InputHandler : MonoBehaviour
         }
     }
 
- 
+    public IEnumerator LoadRawImageAsync(InputEntry collection, int index)
+    {
+        curImageFilePath = collection.ImageFilePath;
+        if (collection.ImageFilePath != "")
+        {
+            // Load the image asynchronously using the WWW class
+            using (WWW www = new WWW(collection.ImageFilePath))
+            {
+                yield return www;
+                if (string.IsNullOrEmpty(www.error))
+                {
+                    // Create a new Texture2D from the downloaded data
+                    Texture2D texture = new Texture2D(2, 2);
+                    www.LoadImageIntoTexture(texture);
+                    // Create a new Sprite from the Texture2D
+                    Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+                    collectionSprite.Insert(index, sprite);
+                }
+                else
+                {
+                    Debug.LogError("Error loading image: " + www.error);
+                    collectionSprite.Insert(index, defaultImage);
+                }
+            }
+        }
+        else
+        {
+            collectionSprite.Insert(index, defaultImage);
+        }
+    }
+
+
     public void OnTakePictureTest()
     {
         TakePicture(512);
