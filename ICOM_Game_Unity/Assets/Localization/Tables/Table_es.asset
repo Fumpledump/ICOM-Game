@@ -118,6 +118,12 @@ MonoBehaviour:
     m_Localized: Cargando...
     m_Metadata:
       m_Items: []
+  - m_Id: 4882577999630336
+    m_Localized: 'Mi Mini
+
+      Museo'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

@@ -10,7 +10,7 @@ public class LocaleSelector : MonoBehaviour
     public bool firstTime = false;
     [SerializeField] private List<Button> lanaguageButtons;
 
-    private void Start()
+    private void Awake()
     {
         int ID = PlayerPrefs.GetInt("LocaleKey", 0);
         ChangeLocale(ID);
